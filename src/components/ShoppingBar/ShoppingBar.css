@@ -1,0 +1,32 @@
+.shopping-bar {
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr 1fr;
+  background-color: slategrey;
+  align-content: center;
+}
+
+.shopping-bar__cart {
+  width: 100%;
+  height: 15vh;
+  background-color: rgb(153, 238, 195);
+}
+
+.shopping-bar__item-list {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(153, 161, 238);
+}
+
+.shopping-bar__total-amount {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(91, 216, 129);
+}
+
+.shopping-bar__payment-button button {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(216, 91, 91);
+}
