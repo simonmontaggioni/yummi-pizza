@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
 
 function App() {
   return (
     <div className='App-container'>
-      <div className='App-logo'>component layout</div>
+      <WelcomePage></WelcomePage>
     </div>
   );
 }
