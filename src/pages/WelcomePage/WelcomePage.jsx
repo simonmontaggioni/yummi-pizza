@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from '../../components/Footer/Footer';
+import Banner from '../../components/Banner/Banner';
 import './WelcomePage.css';
 
 const WelcomePage = () => {
   return (
     <div className='welcome-page'>
       <div className='welcome-page__banner'>
-        banner
-        <button className='welcome-page__button'>Enjoy a Pizza</button>
+        <Banner title='Yummi Pizza' />
       </div>
       <Footer />
     </div>
