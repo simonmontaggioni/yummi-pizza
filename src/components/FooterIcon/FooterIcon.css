@@ -1,0 +1,19 @@
+.footer-icon img {
+  height: 80%;
+  width: 80%;
+  transition: width height 500ms ease-in-out;
+  transition-property: width height;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+.footer-icon img:hover {
+  height: 120%;
+  width: 120%;
+  transition: width height 300ms ease-in-out;
+  transition-property: width height;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
