@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/Footer/Footer';
 import './WelcomePage.css';
 
 const WelcomePage = () => {
@@ -8,7 +9,7 @@ const WelcomePage = () => {
         banner
         <button className='welcome-page__button'>Enjoy a Pizza</button>
       </div>
-      <footer className='welcome-page__footer'>footer</footer>
+      <Footer />
     </div>
   );
 };
