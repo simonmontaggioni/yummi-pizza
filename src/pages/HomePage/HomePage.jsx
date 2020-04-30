@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import Header from '../../components/Header/Header';
+import ShoppingBar from '../../components/ShoppingBar/ShoppingBar';
 
 const HomePage = () => {
   return (
@@ -9,7 +10,9 @@ const HomePage = () => {
         <Header />
       </div>
       <div className='home-page__menu'> menu </div>
-      <div className='home-page__shopping-cart'> shopping cart </div>
+      <div className='home-page__shopping-bar'>
+        <ShoppingBar />
+      </div>
     </div>
   );
 };
