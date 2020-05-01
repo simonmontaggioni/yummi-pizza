@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShoppingBar.css';
-import ItemList from '../ItemList/ItemList';
+import ItemsList from '../ItemsList/ItemsList';
 
 const ShoppingBar = () => {
   return (
@@ -9,7 +9,7 @@ const ShoppingBar = () => {
         <span className='cart-badge'>0</span>
       </div>
       <div className='shopping-bar__item-list'>
-        <ItemList />
+        <ItemsList />
       </div>
       <div className='shopping-bar__total-amount'>
         <div className='total-amount__title'>
