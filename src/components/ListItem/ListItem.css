@@ -16,6 +16,7 @@
   align-items: center;
   justify-items: center;
   justify-content: space-around;
+  box-sizing: border-box;
 }
 
 .list-item__name,
