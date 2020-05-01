@@ -5,7 +5,7 @@ import ItemCard from '../ItemCard/ItemCard';
 const Menu = () => {
   return (
     <div className='menu'>
-      <div className='menu__side menu__side-left'>{'<'}</div>
+      <div className='menu__side menu__side-left'></div>
       <div className='menu__content'>
         <div className='menu__title'> Choose your favorite flavour</div>
         <div className='menu__slider'>
@@ -37,7 +37,7 @@ const Menu = () => {
           </ul>
         </div>
       </div>
-      <div className='menu__side menu__side-right'>{'>'}</div>
+      <div className='menu__side menu__side-right'></div>
     </div>
   );
 };
