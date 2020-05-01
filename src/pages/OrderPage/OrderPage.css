@@ -28,8 +28,7 @@
   width: 70vw;
   display: flex;
   justify-content: center;
-  background-color: rgba(60, 190, 255, 0.548);
-  color: rgba(255, 255, 255, 1);
+  align-items: center;
 }
 
 .order-page__billing {

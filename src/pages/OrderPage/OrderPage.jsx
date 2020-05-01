@@ -1,6 +1,7 @@
 import React from 'react';
 import './OrderPage.css';
 import Header from '../../components/Header/Header';
+import CartDetail from '../../components/CartDetail/CartDetail';
 
 const OrderPage = () => {
   return (
@@ -9,7 +10,9 @@ const OrderPage = () => {
         <Header />
       </div>
       <div className='order-page__main'>
-        <div className='order-page__cart'>cart</div>
+        <div className='order-page__cart'>
+          <CartDetail />
+        </div>
         <div className='order-page__billing'>billing</div>
       </div>
     </div>
