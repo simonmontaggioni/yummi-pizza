@@ -1,6 +1,7 @@
 import React from 'react';
 import './ShoppingBar.css';
 import ItemsList from '../ItemsList/ItemsList';
+import { Link } from 'react-router-dom';
 
 const ShoppingBar = () => {
   return (
@@ -23,7 +24,9 @@ const ShoppingBar = () => {
         </div>
       </div>
       <div className='shopping-bar__payment'>
-        <button className='shopping-bar__payment-button'>go to pay</button>
+        <Link to='/order'>
+          <button className='shopping-bar__payment-button'>go to pay</button>
+        </Link>
       </div>
     </div>
   );
