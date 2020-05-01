@@ -42,9 +42,5 @@
 }
 
 .menu__list--item {
-  width: 35vw;
-  height: 60vh;
   margin: 1rem;
-  background-color: rgba(248, 249, 251, 0.616);
-  border-radius: 1rem;
 }
