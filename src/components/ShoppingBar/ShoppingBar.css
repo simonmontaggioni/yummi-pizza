@@ -1,32 +1,95 @@
 .shopping-bar {
   width: 100vw;
-  height: 100%;
+  height: auto;
   display: grid;
   grid-template-columns: 1fr 7fr 1fr 1fr;
-  background-color: slategrey;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.883);
   align-content: center;
+  /* border-radius: 0.5rem; */
+  position: relative;
+  /* bottom: 1rem; */
 }
 
 .shopping-bar__cart {
   width: 100%;
   height: 15vh;
-  background-color: rgb(153, 238, 195);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/static/icons/shopping-cart.png');
+  background-repeat: no-repeat;
+  background-size: 5rem;
+  background-position: center center;
+}
+
+.cart-badge {
+  width: auto;
+  min-width: 1rem;
+  height: auto;
+  background-color: rgb(174, 243, 142);
+  border: solid 0.5rem rgb(174, 243, 142);
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  position: relative;
+  top: -1.5rem;
+  right: 0.6rem;
+  box-shadow: 0px 0px 10px 2px black;
 }
 
 .shopping-bar__item-list {
   width: 100%;
   height: 100%;
-  background-color: rgb(153, 161, 238);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border-left: solid rgb(200, 200, 200);
+  border-right: solid rgb(200, 200, 200);
+  /* border-radius: 1rem; */
 }
 
 .shopping-bar__total-amount {
   width: 100%;
   height: 100%;
-  background-color: rgb(91, 216, 129);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  color: black;
 }
 
-.shopping-bar__payment-button button {
+.total-amount__title {
+  width: 100%;
+  height: 20%;
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+}
+
+.total-amount__price {
   width: 100%;
   height: 100%;
-  background-color: rgb(216, 91, 91);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
+.shopping-bar__payment {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.shopping-bar__payment-button {
+  width: 90%;
+  height: 70%;
+  background-color: rgb(100, 245, 209);
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 10px 1px black;
 }
