@@ -5,22 +5,36 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .header__nav {
   display: grid;
-  grid-template-columns: 7fr 1fr 1fr 1fr;
+  grid-template-columns: 10fr 1fr 1fr 1fr;
   align-items: center;
 }
 
 .nav__title {
   display: inline-flex;
   justify-self: flex-start;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 .nav__item {
-  display: inline-flex;
-  margin: 1rem;
-  background-color: rgb(168, 185, 192);
+  display: flex;
+  padding: 0.5rem 1rem;
+  /* background-color: rgb(168, 185, 192); */
   justify-content: center;
+  position: relative;
+}
+
+.nav__item--middle {
+  margin: 1rem 2rem 1rem 1rem;
+  border-left: solid 0.1rem rgb(150, 150, 150, 0.7);
+  border-right: solid 0.1rem rgb(150, 150, 150, 0.7);
 }
