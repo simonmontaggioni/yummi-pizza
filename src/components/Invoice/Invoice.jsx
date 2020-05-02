@@ -7,17 +7,24 @@ const itemsList = [
   { name: 'jam', price: '45', quantity: 3 },
   { name: 'special', price: '65', quantity: 1 },
   { name: 'vegan', price: '55', quantity: 2 },
+  { name: 'vegan', price: '55', quantity: 2 },
+  { name: 'vegan', price: '55', quantity: 2 },
 ];
 
 const invoiceItemsList = itemsList.map((item) => (
   <tr class='invoice-row invoice-body-row'>
     <td class='invoice-cell invoice-body-cell'>{item.name}</td>
     <td class='invoice-cell invoice-body-cell'>
-      <span>$</span>
+      <span>{item.price ? '$' : ''}</span>
       {item.price}
     </td>
-    <td class='invoice-cell invoice-body-cell'>x{item.quantity}</td>
-    <td class='invoice-cell invoice-body-cell'>{item.quantity * item.price}</td>
+    <td class='invoice-cell invoice-body-cell'>
+      {item.quantity ? 'x' : ''}
+      {item.quantity}
+    </td>
+    <td class='invoice-cell invoice-body-cell'>
+      {item.quantity ? item.quantity * item.price : ''}
+    </td>
   </tr>
 ));
 

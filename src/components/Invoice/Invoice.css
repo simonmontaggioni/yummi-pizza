@@ -38,6 +38,10 @@
   background-color: rgb(200, 200, 200);
 }
 
+.invoice-body {
+  overflow: auto;
+}
+
 .invoice-body-row:nth-child(even) {
   background-color: rgb(230, 250, 230);
 }
@@ -50,6 +54,14 @@
   font-size: 0.9rem;
   overflow: hidden;
   padding: 0.5rem 0.5rem;
+  word-break: normal;
+}
+
+.invoice-body-cell {
+  font-size: 0.9rem;
+  overflow: hidden;
+  padding: 0.5rem 0.5rem;
+  line-height: 1rem;
   word-break: normal;
 }
 
