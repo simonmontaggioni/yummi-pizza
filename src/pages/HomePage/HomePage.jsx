@@ -10,6 +10,9 @@ const HomePage = () => {
       <div className='home-page__header'>
         <Header />
       </div>
+      <div className='home-page__title'>
+        <span>Choose your favorite flavour</span>
+      </div>
       <div className='home-page__menu'>
         <Menu />
       </div>

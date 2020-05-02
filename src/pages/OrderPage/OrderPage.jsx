@@ -9,6 +9,9 @@ const OrderPage = () => {
       <div className='order-page__header'>
         <Header />
       </div>
+      <div className='order-page__title'>
+        <span>Cart Details</span>
+      </div>
       <div className='order-page__main'>
         <div className='order-page__cart'>
           <CartDetail />

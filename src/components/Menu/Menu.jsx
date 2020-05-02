@@ -7,7 +7,7 @@ const Menu = () => {
     <div className='menu'>
       <div className='menu__side menu__side-left'></div>
       <div className='menu__content'>
-        <div className='menu__title'> Choose your favorite flavour</div>
+        {/* <div className='menu__title'> Choose your favorite flavour</div> */}
         <div className='menu__slider'>
           <ul className='menu__list'>
             <li className='menu__list--item'>
