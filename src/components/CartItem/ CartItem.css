@@ -93,6 +93,9 @@
 }
 
 .cart-item__button--remove {
+  width: 80%;
+  height: 30%;
+  align-self: center;
   box-shadow: 0rem 0.9rem 0.56rem -0.5rem #734c27;
   background: linear-gradient(to bottom, #b5655a 5%, #e94918 100%);
   background-color: #b55a5a;
@@ -103,7 +106,7 @@
   color: rgb(255, 255, 255);
   font-size: 0.7rem;
   font-weight: bold;
-  padding: 0.4rem 0.4rem;
+  /* padding: 0.4rem 0.4rem; */
   text-decoration: none;
   text-shadow: 0rem 0.2rem 0rem #d11616;
   text-transform: capitalize;

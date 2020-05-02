@@ -24,7 +24,7 @@ const ShoppingBar = () => {
         </div>
       </div>
       <div className='shopping-bar__payment'>
-        <Link to='/order'>
+        <Link to='/order' className='block-link'>
           <button className='shopping-bar__payment-button'>go to pay</button>
         </Link>
       </div>
