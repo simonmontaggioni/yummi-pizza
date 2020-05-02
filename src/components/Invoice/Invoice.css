@@ -1,0 +1,126 @@
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0px auto;
+  border-radius: 1.5rem;
+  empty-cells: hide;
+  text-transform: capitalize;
+  text-align: center;
+  vertical-align: center;
+}
+
+.invoice-title {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 1px 10px rgb(122, 255, 104);
+  color: rgb(0, 0, 0);
+}
+
+.invoice-header {
+  position: -webkit-sticky;
+  position: sticky;
+  text-align: center;
+  top: -1px;
+  vertical-align: center;
+  will-change: transform;
+  font-size: 1.1rem;
+  font-weight: 500;
+  overflow: hidden;
+  word-break: normal;
+  background-color: rgba(226, 83, 83, 0);
+  color: rgb(0, 0, 0);
+  line-height: 2.5rem;
+  box-shadow: 1px 1px 5px -1px rgb(0, 0, 0);
+  transform: scale(1.05);
+}
+
+.invoice-header-cell {
+  background-color: rgb(200, 200, 200);
+}
+
+.invoice-body-row:nth-child(even) {
+  background-color: rgb(230, 250, 230);
+}
+
+.invoice-body-row:nth-child(odd) {
+  background-color: rgb(210, 255, 210);
+}
+
+.invoice-cell {
+  font-size: 0.9rem;
+  overflow: hidden;
+  padding: 0.5rem 0.5rem;
+  word-break: normal;
+}
+
+.empty-cell {
+  visibility: hidden;
+}
+
+.invoice-total {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: rgba(72, 184, 57, 0.72);
+  color: rgb(0, 0, 0);
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
+}
+.invoice-subtotal {
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgba(57, 184, 146, 0.72);
+  color: rgb(0, 0, 0);
+  line-height: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.invoice-cell__total-title {
+  font-size: 1rem;
+  background-color: rgb(168, 168, 168);
+}
+
+.invoice-cell__total-amount {
+  font-size: 1.2rem;
+  box-shadow: 1px 5px 8px -1px rgb(0, 0, 0);
+  text-shadow: 3px 3px 3px rgb(230, 250, 230);
+}
+
+.invoice-tax {
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: rgb(200, 200, 200);
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+  box-shadow: 1px 1px 5px -1px rgb(0, 0, 0);
+}
+
+.tax,
+.delivery {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem;
+  font-weight: 400;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  box-sizing: border-box;
+}
+
+.br-top {
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+.br-top-left {
+  border-radius: 0.5rem 0rem 0rem 0rem;
+}
+.br-top-right {
+  border-radius: 0rem 0.5rem 0rem 0rem;
+}
+.br-bottom {
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
+.br-bottom-right {
+  border-radius: 0rem 0rem 0.5rem 0rem;
+}
+.br-bottom-left {
+  border-radius: 0rem 0rem 0rem 0.5rem;
+}
