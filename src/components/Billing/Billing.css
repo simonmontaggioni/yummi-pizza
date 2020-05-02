@@ -1,0 +1,67 @@
+.billing {
+  width: 100%;
+  height: 100%;
+}
+
+.billing-front {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 7fr 1fr;
+  background-color: rgba(255, 255, 255, 0.746);
+  border-radius: 1rem;
+  align-content: space-between;
+}
+
+.invoice-details {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  /* background-color: rgba(168, 253, 245, 0.719); */
+}
+
+.invoice__title {
+  font-size: 2rem;
+}
+
+.invoice__items-list {
+  list-style: none;
+  margin: 1rem;
+  padding: 1rem;
+  border-bottom: solid 1px;
+}
+
+.invoice__item {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.invoice__payment-button {
+  width: 90%;
+  height: 7vh;
+  box-shadow: 0rem 0.9rem 0.56rem -0.5rem #b3af82;
+  background: linear-gradient(to bottom, #d4f05ad2 5%, #e6e931 100%);
+  background-color: #b4b55a;
+  border-radius: 0.8rem;
+  border: 0.1rem solid #c5c32e;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0rem 0.2rem 0.1rem #ffffff;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.invoice__payment-button:hover {
+  background: linear-gradient(to bottom, #dcfb52fb 5%, #b8e244 100%);
+  background-color: #b4b55a;
+}
+
+.invoice__payment-button:active {
+  transform: scale(0.9);
+}
