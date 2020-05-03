@@ -6,7 +6,7 @@ const Banner = (props) => {
   return (
     <div className='banner'>
       <h1 className='banner__title'>
-        Welcome to <span>{props.title}</span>
+        <span>{props.title}</span>
       </h1>
       <div>
         <Link to='/home'>

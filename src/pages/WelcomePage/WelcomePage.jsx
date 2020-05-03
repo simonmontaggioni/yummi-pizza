@@ -7,7 +7,7 @@ const WelcomePage = () => {
   return (
     <div className='welcome-page'>
       <div className='welcome-page__banner'>
-        <Banner title='Yummi Pizza' />
+        <Banner title='Welcome to Yummi Pizza' />
       </div>
       <Footer />
     </div>
