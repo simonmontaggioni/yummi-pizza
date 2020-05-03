@@ -50,7 +50,7 @@ const list = [
 const Menu = () => {
   const menuList = list.map((item) => (
     <li className='menu__list--item'>
-      <ItemCard title={item.title} price={item.price} />
+      <ItemCard key={item.title} item={item} />
     </li>
   ));
 
