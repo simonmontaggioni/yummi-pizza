@@ -1,11 +1,11 @@
 .custom-select {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-items: center;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
   box-sizing: border-box;
 }
 .select-wrapper {
@@ -62,7 +62,7 @@ option.custom-select__option:focus {
 }
 
 .custom-select__label {
-  width: 50%;
+  width: auto;
   display: flex;
   height: 1.5rem;
   background-color: rgba(230, 230, 230, 0);
