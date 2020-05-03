@@ -1,0 +1,77 @@
+.custom-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.select-wrapper {
+  height: 2rem;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px -1px black;
+}
+
+select.custom-select__input {
+  display: flex;
+  background: transparent;
+  background-color: rgb(230, 230, 230);
+  border: none;
+  font-size: 0.9rem;
+  height: 100%;
+  padding-left: 1rem;
+  width: 100%;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+select.custom-select__input:focus {
+  outline: none;
+}
+
+.select-wrapper::after {
+  content: '\025be';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #c3c3c3;
+  color: rgb(59, 59, 11);
+  position: absolute;
+  top: 0;
+  right: 0px;
+  pointer-events: none;
+}
+
+option.custom-select__option {
+  background-color: rgb(221, 221, 221);
+  outline: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+}
+
+option.custom-select__option:focus {
+  background-color: rgb(223, 221, 221);
+}
+
+.custom-select__label {
+  width: 50%;
+  display: flex;
+  height: 1.5rem;
+  background-color: rgba(230, 230, 230, 0);
+  padding-left: 1rem;
+  align-self: start;
+  text-align: left;
+  align-items: center;
+  border-radius: 0.2rem 0.2rem 0rem 0rem;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
