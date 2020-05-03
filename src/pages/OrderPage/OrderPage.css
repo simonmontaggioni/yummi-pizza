@@ -25,11 +25,32 @@
 }
 
 .order-page__title {
+  display: flex;
   font-size: 3rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   color: rgb(255, 255, 255);
   text-shadow: 5px 5px 5px rgb(0, 0, 0);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.back-button {
+  display: flex;
+  height: 70%;
+  width: 10vw;
+  background-color: rgba(255, 53, 93, 0.774);
+  color: rgb(255, 255, 255);
+  /* float: right; */
+  font-weight: 800;
+  font-size: 1rem;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 0rem;
+  border-radius: 0.5rem;
+  outline: none;
 }
 
 .order-page__cart {
