@@ -1,16 +1,19 @@
 .billing {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
-.billing-front {
+.billing-front,
+.billing-rear {
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-rows: 7fr 1fr;
-  background-color: rgba(255, 255, 255, 0.746);
+  background-color: rgba(226, 226, 226, 0.965);
   border-radius: 1rem;
   align-content: space-between;
+  backface-visibility: hidden;
 }
 
 .invoice-details {
@@ -64,4 +67,36 @@
 
 .invoice__payment-button:active {
   transform: scale(0.9);
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* text-align: center; */
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* .flip-card:hover .flip-card-inner { */
+.flip-front {
+  transform: rotateY(0deg);
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }
