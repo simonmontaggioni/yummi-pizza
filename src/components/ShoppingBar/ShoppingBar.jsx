@@ -1,13 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './ShoppingBar.css';
 import ItemsList from '../ItemsList/ItemsList';
 import { Link } from 'react-router-dom';
 
-const ShoppingBar = () => {
+const ShoppingBar = (props) => {
   return (
     <div className='shopping-bar'>
       <div className='shopping-bar__cart'>
-        <span className='cart-badge'>0</span>
+        <span className='cart-badge'>
+          {props.cartItems ? props.cartItems.length : 0}
+        </span>
       </div>
       <div className='shopping-bar__item-list'>
         <ItemsList />
@@ -32,4 +35,10 @@ const ShoppingBar = () => {
   );
 };
 
-export default ShoppingBar;
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cartItems,
+  };
+};
+
+export default connect(mapStateToProps, null)(ShoppingBar);
