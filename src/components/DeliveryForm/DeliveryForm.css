@@ -1,0 +1,61 @@
+.delivery-form {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-areas: 'title title' 'a a' 'b b' 'c c' 'd d' 'e e' 'f g' 'h h';
+  /* grid-template-rows: repeat(6, auto); */
+  /* grid-template-columns: 1fr 1fr; */
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.delivery-form__title {
+  display: grid;
+  grid-area: title;
+  margin: 0;
+  margin-top: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 1px 10px rgb(122, 255, 104);
+  color: rgb(0, 0, 0);
+}
+.delivery-form__title h2 {
+  margin: 0;
+}
+.name {
+  display: grid;
+  grid-area: a;
+}
+.last-name {
+  display: grid;
+  grid-area: b;
+}
+
+.municipallity {
+  display: grid;
+  grid-area: c;
+}
+.city {
+  display: grid;
+  grid-area: d;
+}
+.street {
+  display: grid;
+  grid-area: g;
+}
+
+.postal-code {
+  display: grid;
+  grid-area: f;
+}
+
+.address-number {
+  display: grid;
+  grid-area: h;
+}
+.parish {
+  display: grid;
+  grid-area: e;
+}
