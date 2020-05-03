@@ -4,6 +4,7 @@ import './App.css';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import HomePage from '../pages/HomePage/HomePage';
 import OrderPage from '../pages/OrderPage/OrderPage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path='/order'>
             <OrderPage />
+          </Route>
+          <Route path=''>
+            <NotFoundPage />
           </Route>
         </Switch>
       </Router>
