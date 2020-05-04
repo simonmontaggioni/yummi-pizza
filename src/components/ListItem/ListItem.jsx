@@ -2,7 +2,6 @@ import React from 'react';
 import './ListItem.css';
 
 const ListItem = (props) => {
-  console.log(props);
   return (
     <li className='shopping-bar__list-item'>
       <span className='list-item__name'>
