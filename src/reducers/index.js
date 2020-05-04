@@ -5,6 +5,15 @@ const reducer = (state, action) => {
         ...state,
         cartItems: [...state.cartItems, action.payload],
       };
+    case 'REMOVE_FROM_CART':
+      const itemIndex = state.cartItems.findIndex((item) => {
+        return item.item.id === action.payload;
+      });
+      state.cartItems[itemIndex].id = 'm';
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => item.id !== 'm'),
+      };
     default:
       return state;
   }
