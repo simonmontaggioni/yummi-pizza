@@ -1,12 +1,16 @@
 import React from 'react';
 import './ListItem.css';
 
-const ListItem = () => {
+const ListItem = (props) => {
+  console.log(props);
   return (
     <li className='shopping-bar__list-item'>
-      <span className='list-item__name'>item name</span>
+      <span className='list-item__name'>
+        {props.item ? props.item.title : 'loading...'}
+      </span>
       <span className='list-item__price'>
-        <span>$</span>price
+        <span>{`${'$'} `}</span>
+        {props.item ? props.item.price : 'loading...'}
       </span>
       <span className='list-item__action'>d</span>
     </li>
