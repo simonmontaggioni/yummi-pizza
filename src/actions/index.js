@@ -11,3 +11,7 @@ export const setClientData = (payload) => ({
   type: 'SET_CLIENT_DATA',
   payload,
 });
+export const changeCoinType = (payload) => ({
+  type: 'CHANGE_COIN_TYPE',
+  payload,
+});
