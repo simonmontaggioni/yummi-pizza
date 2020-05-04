@@ -2,36 +2,21 @@ import React from 'react';
 import './ CartItem.css';
 import itemImage from '../../assets/static/images/pizza-1.png';
 
-const pizza = {
-  title: 'margarita',
-  ingredients: [
-    'ingredient 1',
-    'ingredient 2',
-    'ingredient 3',
-    'ingredient 4',
-    'ingredient 5',
-    'ingredient 6',
-    'ingredient 7',
-  ],
-  price: 45,
-  image: itemImage,
-};
+const CartItem = (props) => {
+  const setItemsList = props.item.ingredients.map((ingredient) => (
+    <li key={ingredient.title + ingredient} className='order-cart-item'>
+      <span>{ingredient}</span>
+    </li>
+  ));
 
-const setItemsList = pizza.ingredients.map((ingredient) => (
-  <li key={ingredient.title + ingredient} className='order-cart-item'>
-    <span>{ingredient}</span>
-  </li>
-));
-
-const CartItem = () => {
   return (
     <li className='cart-item'>
       <div className='cart-item__card'>
         <div className='cart-item__title'>
-          <span>{pizza.title}</span>
+          <span>{props.item.title}</span>
         </div>
         <div className='cart-item__image-wrapper'>
-          <img className='responsive-img' src={pizza.image} alt='item' />
+          <img className='responsive-img' src={itemImage} alt='item' />
         </div>
       </div>
       <div className='cart-item__details'>
@@ -44,7 +29,7 @@ const CartItem = () => {
         <span className='unit-price'> Unit Price</span>
         <span className='price'>
           <span className='coin'>$</span>
-          {pizza.price}
+          {props.item.price}
         </span>
         <button className='cart-item__button--remove'>remove from cart</button>
       </div>
