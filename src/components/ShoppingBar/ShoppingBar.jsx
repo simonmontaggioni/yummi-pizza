@@ -5,6 +5,14 @@ import ItemsList from '../ItemsList/ItemsList';
 import { Link } from 'react-router-dom';
 
 const ShoppingBar = (props) => {
+  const calculateTotal = (cartItems) => {
+    let total = 0;
+    for (let item of cartItems) {
+      total += item.item.price;
+    }
+    return total;
+  };
+
   return (
     <div className='shopping-bar'>
       <div
@@ -28,7 +36,9 @@ const ShoppingBar = (props) => {
         <div className='total-amount__price'>
           <div>
             <span className='total-amount__coin'>$</span>
-            <span className='total-amount__cost'>45</span>
+            <span className='total-amount__cost'>
+              {calculateTotal(props.cartItems)}
+            </span>
           </div>
         </div>
       </div>
