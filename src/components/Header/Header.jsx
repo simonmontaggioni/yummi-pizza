@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import CoinSelector from '../CoinSelector/CoinSelector';
 
 const Header = () => {
   return (
@@ -13,7 +14,9 @@ const Header = () => {
         </div>
         <div className='nav__item'>login</div>
         <div className='nav__item nav__item--middle'>signup</div>
-        <div className='nav__item'>coin</div>
+        <div className='nav__item'>
+          <CoinSelector />
+        </div>
       </nav>
     </header>
   );
