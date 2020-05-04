@@ -2,6 +2,10 @@ import React from 'react';
 import './InputSelect.css';
 
 const InputSelect = (props) => {
+  const handleInputChange = (event) => {
+    props.onInputChange(event.target);
+  };
+
   const optionList = props.options.map((option) => (
     <option className='custom-select__option' key={option} value={option}>
       {option}
@@ -21,6 +25,7 @@ const InputSelect = (props) => {
           value={props.value}
           placeholder={props.placeholder}
           readOnly={props.readOnly}
+          onChange={handleInputChange}
         >
           {optionList}
         </select>

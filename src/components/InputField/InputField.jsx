@@ -2,8 +2,8 @@ import React from 'react';
 import './InputField.css';
 
 const InputField = (props) => {
-  const handleChange = (event) => {
-    console.log(event.target.value);
+  const handleInputChange = (event) => {
+    props.onInputChange(event.target);
   };
 
   return (
@@ -19,7 +19,7 @@ const InputField = (props) => {
           //   value={props.value}
           placeholder={props.placeholder}
           readOnly={props.readOnly}
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
       </div>
     </div>
