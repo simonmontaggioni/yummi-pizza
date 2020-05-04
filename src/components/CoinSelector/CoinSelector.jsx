@@ -5,8 +5,6 @@ import { changeCoinType } from '../../actions';
 import './CoinSelector.css';
 
 const CoinSelector = (props) => {
-  console.log(props.coinType);
-
   const handleOptionChange = (e) => {
     const coinType = e.target.value;
     props.changeCoinType(coinType);

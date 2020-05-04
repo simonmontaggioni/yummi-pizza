@@ -46,17 +46,17 @@ const Invoice = (props) => {
   const invoiceItemsList = invoiceItems.map((item) => {
     if (item) {
       return (
-        <tr class='invoice-row invoice-body-row'>
-          <td class='invoice-cell invoice-body-cell'>
+        <tr key={item.name} className='invoice-row invoice-body-row'>
+          <td className='invoice-cell invoice-body-cell'>
             {item.quantity > 0 ? item.name : ''}
           </td>
-          <td class='invoice-cell invoice-body-cell'>
+          <td className='invoice-cell invoice-body-cell'>
             <span>{item.quantity > 0 ? '$' + item.price : ''}</span>
           </td>
-          <td class='invoice-cell invoice-body-cell'>
+          <td className='invoice-cell invoice-body-cell'>
             {item.quantity > 0 ? 'x' + item.quantity : ''}
           </td>
-          <td class='invoice-cell invoice-body-cell'>
+          <td className='invoice-cell invoice-body-cell'>
             {item.quantity ? item.quantity * item.price : ''}
           </td>
         </tr>
@@ -73,20 +73,22 @@ const Invoice = (props) => {
 
   return (
     <div>
-      <table class='invoice-table'>
+      <table className='invoice-table'>
         <caption className='invoice-title'>
           <h2>Invoice details</h2>
         </caption>
-        <thead class='invoice-header'>
-          <td class='invoice-cell invoice-header-cell'>Item</td>
-          <td class='invoice-cell invoice-header-cell'>Price</td>
-          <td class='invoice-cell invoice-header-cell'>qty</td>
-          <td class='invoice-cell invoice-header-cell'>subtotal</td>
+        <thead className='invoice-header'>
+          <tr>
+            <th className='invoice-cell invoice-header-cell'>Item</th>
+            <th className='invoice-cell invoice-header-cell'>Price</th>
+            <th className='invoice-cell invoice-header-cell'>qty</th>
+            <th className='invoice-cell invoice-header-cell'>subtotal</th>
+          </tr>
         </thead>
         <tbody className='invoice-body'>{invoiceItemsList}</tbody>
         <tfoot className='invoice-footer'>
-          <tr class='invoice-row invoice-tax'>
-            <td class='invoice-cell' colspan='4'>
+          <tr className='invoice-row invoice-tax'>
+            <td className='invoice-cell' colSpan='4'>
               <div className='tax'>
                 <span>IVA {iva}%</span>
                 <span>
@@ -100,13 +102,13 @@ const Invoice = (props) => {
             </td>
           </tr>
           <tr className='invoice-total'>
-            <td class='empty-cell'></td>
-            <td class='invoice-cell invoice-cell__total-title br-bottom-left '>
+            <td className='empty-cell'></td>
+            <td className='invoice-cell invoice-cell__total-title br-bottom-left '>
               Total
             </td>
             <td
-              class='invoice-cell invoice-cell__total-amount br-bottom'
-              colspan='2'
+              className='invoice-cell invoice-cell__total-amount br-bottom'
+              colSpan='2'
               rowSpan='2'
             >
               $

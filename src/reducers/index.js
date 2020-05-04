@@ -21,7 +21,6 @@ const reducer = (state, action) => {
         userData: action.payload,
       };
     case 'CHANGE_COIN_TYPE':
-      console.log(action);
       const coinType = action.payload;
       return {
         ...state,
