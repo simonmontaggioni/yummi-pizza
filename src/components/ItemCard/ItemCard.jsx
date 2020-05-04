@@ -23,7 +23,7 @@ const ItemCard = (props) => {
         <img src={pizza} alt='pizza' />
       </div>
       <div className='item-card__title'>
-        <span>{item.title}</span>
+        <span>{item.name}</span>
       </div>
       <div className='item-card__footer'>
         <button className='item-card__button' onClick={handleAddToCart}>

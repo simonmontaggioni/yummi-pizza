@@ -5,7 +5,7 @@ const ListItem = (props) => {
   return (
     <li className='shopping-bar__list-item'>
       <span className='list-item__name'>
-        {props.item ? props.item.title : 'loading...'}
+        {props.item ? props.item.name : 'loading...'}
       </span>
       <span className='list-item__price'>
         <span>{`${'$'} `}</span>

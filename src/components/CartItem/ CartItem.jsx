@@ -13,7 +13,7 @@ const CartItem = (props) => {
     <li className='cart-item'>
       <div className='cart-item__card'>
         <div className='cart-item__title'>
-          <span>{props.item.title}</span>
+          <span>{props.item.name}</span>
         </div>
         <div className='cart-item__image-wrapper'>
           <img className='responsive-img' src={itemImage} alt='item' />
