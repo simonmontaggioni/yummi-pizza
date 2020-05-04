@@ -4,8 +4,8 @@ import './ItemsList.css';
 import ListItem from '../ListItem/ListItem';
 
 const ItemsList = (props) => {
-  let items = props.cartItems.map((object, index) => (
-    <ListItem key={object.item.title + index.toString()} item={object.item} />
+  let items = props.cartItems.map((item, index) => (
+    <ListItem key={item.title + index.toString()} item={item} />
   ));
   return (
     <div className='list-container'>

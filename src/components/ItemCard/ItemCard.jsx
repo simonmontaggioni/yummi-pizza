@@ -10,7 +10,7 @@ const ItemCard = (props) => {
   const item = props.item;
 
   const handleAddToCart = (event) => {
-    props.addToCart({ item });
+    props.addToCart(item);
   };
 
   return (

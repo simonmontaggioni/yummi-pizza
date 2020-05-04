@@ -7,12 +7,13 @@ const reducer = (state, action) => {
       };
     case 'REMOVE_FROM_CART':
       const itemIndex = state.cartItems.findIndex((item) => {
-        return item.item.id === action.payload;
+        return item.id === action.payload;
       });
-      state.cartItems[itemIndex].id = 'm';
+      const newArray = JSON.parse(JSON.stringify(state.cartItems));
+      newArray[itemIndex].id = 'm';
       return {
         ...state,
-        cartItems: state.cartItems.filter((item) => item.id !== 'm'),
+        cartItems: newArray.filter((item) => item.id !== 'm'),
       };
     case 'SET_CLIENT_DATA':
       return {

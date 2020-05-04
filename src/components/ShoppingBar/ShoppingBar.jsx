@@ -8,7 +8,7 @@ const ShoppingBar = (props) => {
   const calculateTotal = (cartItems) => {
     let total = 0;
     for (let item of cartItems) {
-      total += item.item.price;
+      total += item.price;
     }
     return total;
   };

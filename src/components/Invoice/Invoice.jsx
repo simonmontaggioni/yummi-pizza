@@ -14,7 +14,7 @@ const Invoice = (props) => {
     let subTotal = 0;
     if (cartItems) {
       for (let item of cartItems) {
-        subTotal += item.item.price;
+        subTotal += item.price;
       }
     }
     return subTotal;
@@ -35,7 +35,7 @@ const Invoice = (props) => {
     { id: 'pizza-8', name: 'la marinara', price: 45, quantity: 0 },
   ];
 
-  const cartItems = props.cartItems.map((item) => item.item);
+  const cartItems = props.cartItems;
   for (let cartItem of cartItems) {
     let itemIndex = invoiceItems.findIndex(
       (invoiceItem) => invoiceItem.id === cartItem.id

@@ -5,10 +5,7 @@ import CartItem from '../CartItem/ CartItem';
 
 const CartDetail = (props) => {
   const cartItemsList = props.cartItems.map((cartItem, index) => (
-    <CartItem
-      key={cartItem.item.name + index.toString()}
-      item={cartItem.item}
-    />
+    <CartItem key={cartItem.name + index.toString()} item={cartItem} />
   ));
   return (
     <div className='cart-detail'>
