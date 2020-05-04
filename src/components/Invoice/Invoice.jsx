@@ -1,34 +1,55 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Invoice.css';
 
-const itemsList = [
-  { name: 'margarita', price: '45', quantity: 2 },
-  { name: 'peperonni', price: '50', quantity: 1 },
-  { name: 'jam', price: '45', quantity: 3 },
-  { name: 'special', price: '65', quantity: 1 },
-  { name: 'vegan', price: '55', quantity: 2 },
-  { name: 'vegan', price: '55', quantity: 2 },
-  { name: 'vegan', price: '55', quantity: 2 },
-];
+const Invoice = (props) => {
+  let invoiceItems = [
+    { id: 'pizza-1', name: 'margarita', price: 45, quantity: 0 },
+    { id: 'pizza-2', name: 'stagioni', price: 45, quantity: 0 },
+    { id: 'pizza-3', name: 'mexicana', price: 45, quantity: 0 },
+    { id: 'pizza-4', name: 'primavera', price: 45, quantity: 0 },
+    { id: 'pizza-5', name: 'pastorella', price: 45, quantity: 0 },
+    { id: 'pizza-6', name: 'hawaiana', price: 45, quantity: 0 },
+    { id: 'pizza-7', name: 'napolitana', price: 45, quantity: 0 },
+    { id: 'pizza-8', name: 'la marinara', price: 45, quantity: 0 },
+  ];
 
-const invoiceItemsList = itemsList.map((item) => (
-  <tr class='invoice-row invoice-body-row'>
-    <td class='invoice-cell invoice-body-cell'>{item.name}</td>
-    <td class='invoice-cell invoice-body-cell'>
-      <span>{item.price ? '$' : ''}</span>
-      {item.price}
-    </td>
-    <td class='invoice-cell invoice-body-cell'>
-      {item.quantity ? 'x' : ''}
-      {item.quantity}
-    </td>
-    <td class='invoice-cell invoice-body-cell'>
-      {item.quantity ? item.quantity * item.price : ''}
-    </td>
-  </tr>
-));
+  const cartItems = props.cartItems.map((item) => item.item);
+  for (let cartItem of cartItems) {
+    let itemIndex = invoiceItems.findIndex(
+      (invoiceItem) => invoiceItem.id === cartItem.id
+    );
+    invoiceItems[itemIndex].quantity += 1;
+  }
 
-const Invoice = () => {
+  const invoiceItemsList = invoiceItems.map((item) => {
+    if (item) {
+      return (
+        <tr class='invoice-row invoice-body-row'>
+          <td class='invoice-cell invoice-body-cell'>
+            {item.quantity > 0 ? item.name : ''}
+          </td>
+          <td class='invoice-cell invoice-body-cell'>
+            <span>{item.quantity > 0 ? '$' + item.price : ''}</span>
+          </td>
+          <td class='invoice-cell invoice-body-cell'>
+            {item.quantity > 0 ? 'x' + item.quantity : ''}
+          </td>
+          <td class='invoice-cell invoice-body-cell'>
+            {item.quantity ? item.quantity * item.price : ''}
+          </td>
+        </tr>
+      );
+    } else
+      return (
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      );
+  });
+
   return (
     <div>
       <table class='invoice-table'>
@@ -78,4 +99,10 @@ const Invoice = () => {
   );
 };
 
-export default Invoice;
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cartItems,
+  };
+};
+
+export default connect(mapStateToProps, null)(Invoice);
