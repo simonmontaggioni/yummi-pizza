@@ -3,6 +3,27 @@ import { connect } from 'react-redux';
 import './Invoice.css';
 
 const Invoice = (props) => {
+  const iva = 16;
+  const delivery = 10;
+
+  const calculateIva = (subTotal, iva) => {
+    return (subTotal * iva) / 100;
+  };
+
+  const calculateSubTotal = (cartItems) => {
+    let subTotal = 0;
+    if (cartItems) {
+      for (let item of cartItems) {
+        subTotal += item.item.price;
+      }
+    }
+    return subTotal;
+  };
+
+  const calculateTotal = (subTotal, iva, delivery) => {
+    return subTotal + iva + delivery;
+  };
+
   let invoiceItems = [
     { id: 'pizza-1', name: 'margarita', price: 45, quantity: 0 },
     { id: 'pizza-2', name: 'stagioni', price: 45, quantity: 0 },
@@ -67,12 +88,14 @@ const Invoice = (props) => {
           <tr class='invoice-row invoice-tax'>
             <td class='invoice-cell' colspan='4'>
               <div className='tax'>
-                <span>IVA 16%</span>
-                <span>$15</span>
+                <span>IVA {iva}%</span>
+                <span>
+                  $ {calculateIva(calculateSubTotal(props.cartItems), iva)}
+                </span>
               </div>
               <div className='delivery'>
                 <span>Delivery Cost</span>
-                <span>$10</span>
+                <span>$ {delivery}</span>
               </div>
             </td>
           </tr>
@@ -86,7 +109,12 @@ const Invoice = (props) => {
               colspan='2'
               rowSpan='2'
             >
-              $ 400
+              $
+              {calculateTotal(
+                calculateSubTotal(props.cartItems),
+                calculateIva(calculateSubTotal(props.cartItems), iva),
+                delivery
+              )}
             </td>
           </tr>
           <tr>
