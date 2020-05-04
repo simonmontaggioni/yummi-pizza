@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../actions';
 import './ CartItem.css';
 import itemImage from '../../assets/static/images/pizza-1.png';
 
@@ -8,6 +10,11 @@ const CartItem = (props) => {
       <span>{ingredient}</span>
     </li>
   ));
+
+  const handleRemoveFromCart = (event) => {
+    const itemId = props.item.id;
+    props.removeFromCart(itemId);
+  };
 
   return (
     <li className='cart-item'>
@@ -31,10 +38,19 @@ const CartItem = (props) => {
           <span className='coin'>$</span>
           {props.item.price}
         </span>
-        <button className='cart-item__button--remove'>remove from cart</button>
+        <button
+          className='cart-item__button--remove'
+          onClick={handleRemoveFromCart}
+        >
+          remove from cart
+        </button>
       </div>
     </li>
   );
 };
 
-export default CartItem;
+const mapDispatchToProps = {
+  removeFromCart,
+};
+
+export default connect(null, mapDispatchToProps)(CartItem);
