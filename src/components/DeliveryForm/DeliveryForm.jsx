@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setClientData } from '../../actions';
 import './DeliveryForm.css';
 import InputSelect from '../InputSelect/InputSelect';
 import InputField from '../InputField/InputField';
@@ -65,7 +67,7 @@ const postalCode = {
   readOnly: false,
 };
 
-const DeliveryForm = () => {
+const DeliveryForm = (props) => {
   let clientData = {
     name: '',
     lastName: '',
@@ -108,6 +110,7 @@ const DeliveryForm = () => {
         break;
     }
     console.log(clientData);
+    props.setClientData(clientData);
   };
 
   return (
@@ -191,5 +194,8 @@ const DeliveryForm = () => {
     </div>
   );
 };
+const mapDispatchToProps = {
+  setClientData,
+};
 
-export default DeliveryForm;
+export default connect(null, mapDispatchToProps)(DeliveryForm);

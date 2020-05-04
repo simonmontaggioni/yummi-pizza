@@ -14,6 +14,11 @@ const reducer = (state, action) => {
         ...state,
         cartItems: state.cartItems.filter((item) => item.id !== 'm'),
       };
+    case 'SET_CLIENT_DATA':
+      return {
+        ...state,
+        userData: action.payload,
+      };
     default:
       return state;
   }

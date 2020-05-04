@@ -7,3 +7,7 @@ export const removeFromCart = (payload) => ({
   type: 'REMOVE_FROM_CART',
   payload,
 });
+export const setClientData = (payload) => ({
+  type: 'SET_CLIENT_DATA',
+  payload,
+});
