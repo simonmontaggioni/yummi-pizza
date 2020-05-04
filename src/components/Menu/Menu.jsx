@@ -48,9 +48,9 @@ const list = [
 ];
 
 const Menu = () => {
-  const menuList = list.map((item) => (
-    <li className='menu__list--item'>
-      <ItemCard key={item.title} item={item} />
+  const menuList = list.map((item, index) => (
+    <li key={item.title + index.toString()} className='menu__list--item'>
+      <ItemCard item={item} />
     </li>
   ));
 
