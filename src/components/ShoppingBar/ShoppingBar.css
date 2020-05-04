@@ -16,11 +16,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../../assets/static/icons/shopping-cart-full.png');
+  /* background-image: url('../../assets/static/icons/shopping-cart-empty.png'); */
   background-repeat: no-repeat;
   background-size: 10rem;
   background-position: center center;
   margin-left: 0.5rem;
+}
+
+.shopping-bar__cart--empty {
+  background-image: url('../../assets/static/icons/shopping-cart-empty.png');
+}
+.shopping-bar__cart--full {
+  background-image: url('../../assets/static/icons/shopping-cart-full.png');
 }
 
 .cart-badge {

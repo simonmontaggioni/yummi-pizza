@@ -7,7 +7,13 @@ import { Link } from 'react-router-dom';
 const ShoppingBar = (props) => {
   return (
     <div className='shopping-bar'>
-      <div className='shopping-bar__cart'>
+      <div
+        className={`shopping-bar__cart ${
+          props.cartItems.length > 0
+            ? 'shopping-bar__cart--full'
+            : 'shopping-bar__cart--empty'
+        }`}
+      >
         <span className='cart-badge'>
           {props.cartItems ? props.cartItems.length : 0}
         </span>
