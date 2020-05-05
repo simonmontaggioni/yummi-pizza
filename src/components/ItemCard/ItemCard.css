@@ -117,3 +117,43 @@
   color: black;
   box-shadow: 0rem 0rem 1rem 0.1rem rgb(77, 77, 77);
 }
+
+.item-card:hover {
+  animation: scale-up 0.5s ease-out both;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1.001);
+  }
+  25% {
+    transform: scale(1.005);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  75% {
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1.02);
+  }
+  25% {
+    transform: scale(1.015);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  75% {
+    transform: scale(1.005);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
