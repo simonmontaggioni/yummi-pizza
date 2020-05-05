@@ -7,7 +7,7 @@ const NotFoundPage = () => {
   return (
     <div className='not-found-page'>
       <div className='not-found-page__banner'>
-        <Banner title='404 Not Found Page' />
+        <Banner title='Oops!!! here is not a pizza' buttonText={'go back'} />
       </div>
       <Footer />
     </div>

@@ -7,7 +7,10 @@ const WelcomePage = () => {
   return (
     <div className='welcome-page'>
       <div className='welcome-page__banner'>
-        <Banner title='Welcome to Yummi Pizza' />
+        <Banner
+          title='Welcome to Yummi Pizza'
+          buttonText={'enjoy a pizza!!!'}
+        />
       </div>
       <Footer />
     </div>

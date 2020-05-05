@@ -10,7 +10,7 @@ const Banner = (props) => {
       </h1>
       <div>
         <Link to='/home'>
-          <button className='banner__button'>Enjoy a Pizza</button>
+          <button className='banner__button'>{props.buttonText}</button>
         </Link>
       </div>
     </div>
