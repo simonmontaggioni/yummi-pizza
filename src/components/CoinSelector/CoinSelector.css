@@ -1,0 +1,41 @@
+.coin-selector {
+  width: 6rem;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8rem;
+  align-items: center;
+}
+
+.coin-logo {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.coin-logo-eur {
+  background-image: url('../../assets/static/icons/icon-eur.svg');
+}
+
+.coin-logo-usd {
+  background-image: url('../../assets/static/icons/icon-usd.svg');
+}
+
+.coin-description {
+  width: 3rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+.coin-description__radio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

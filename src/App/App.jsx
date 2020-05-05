@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
+
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import HomePage from '../pages/HomePage/HomePage';
 import OrderPage from '../pages/OrderPage/OrderPage';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+
+import './App.css';
 
 function App() {
   return (

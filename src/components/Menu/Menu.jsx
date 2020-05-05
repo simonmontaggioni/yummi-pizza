@@ -4,53 +4,93 @@ import ItemCard from '../ItemCard/ItemCard';
 
 const list = [
   {
-    title: 'margarita',
-    ingredients: [
-      'ingredient 1',
-      'ingredient 2',
-      'ingredient 3',
-      'ingredient 4',
-      'ingredient 5',
-      'ingredient 6',
-      'ingredient 7',
-    ],
+    name: 'margarita',
     price: 45,
-    image: 'itemImage',
+    ingredients: ['tomato paste', 'mozarrella cheese'],
+    id: 'pizza-1',
+    image: 'margarita',
   },
   {
-    title: 'pepperoni',
-    ingredients: [
-      'ingredient 1',
-      'ingredient 2',
-      'ingredient 3',
-      'ingredient 4',
-      'ingredient 5',
-      'ingredient 6',
-      'ingredient 7',
-    ],
+    name: 'stagioni',
     price: 45,
-    image: 'itemImage',
+    ingredients: [
+      'mozarrella cheese',
+      'parmesan cheese',
+      'basil',
+      'mushrooms',
+      'ham',
+      'artichokes',
+      'olives',
+    ],
+    id: 'pizza-2',
+    image: 'stagioni',
   },
   {
-    title: 'vegan',
-    ingredients: [
-      'ingredient 1',
-      'ingredient 2',
-      'ingredient 3',
-      'ingredient 4',
-      'ingredient 5',
-      'ingredient 6',
-      'ingredient 7',
-    ],
+    name: 'mexicana',
     price: 45,
-    image: 'itemImage',
+    ingredients: [
+      'onion',
+      'paprika',
+      'ground beef',
+      'mozarrella cheese',
+      'avocado',
+    ],
+    id: 'pizza-3',
+    image: 'mexicana',
+  },
+  {
+    name: 'primavera',
+    price: 45,
+    ingredients: ['mozzarella cheese', 'paprika', 'corn', 'egg', 'tomato'],
+    id: 'pizza-4',
+    image: 'primavera',
+  },
+  {
+    name: 'pastorella',
+    price: 45,
+    ingredients: [
+      'cottage cheese',
+      'mozzarella cheese',
+      'salame',
+      'basil',
+      'paprika',
+    ],
+    id: 'pizza-5',
+    image: 'pastorella',
+  },
+  {
+    name: 'hawaiana',
+    price: 45,
+    ingredients: ['pineapple', 'ham', 'tomato', 'mozzarella cheese', 'spices'],
+    id: 'pizza-6',
+    image: 'hawaiana',
+  },
+  {
+    name: 'napolitana',
+    price: 45,
+    ingredients: [
+      'tomato paste',
+      'tomato',
+      'mozzarella cheese',
+      'parsley',
+      'green olives',
+    ],
+    id: 'pizza-7',
+    image: 'napolitana',
+  },
+  {
+    name: 'la marinara',
+    price: 45,
+    ingredients: ['tomato paste', 'oregano', 'garlic', 'basil'],
+    id: 'pizza-8',
+    image: 'lamarinara',
   },
 ];
 
 const Menu = () => {
-  const menuList = list.map((item) => (
-    <li className='menu__list--item'>
-      <ItemCard title={item.title} price={item.price} />
+  const menuList = list.map((item, index) => (
+    <li key={item.name + index.toString()} className='menu__list--item'>
+      <ItemCard item={item} />
     </li>
   ));
 

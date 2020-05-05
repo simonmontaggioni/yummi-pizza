@@ -1,13 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { coinFactor, coinSymbol } from '../../utils';
 import './ShoppingBar.css';
 import ItemsList from '../ItemsList/ItemsList';
 import { Link } from 'react-router-dom';
 
-const ShoppingBar = () => {
+const ShoppingBar = (props) => {
+  const calculateTotal = (cartItems) => {
+    let total = 0;
+    for (let item of cartItems) {
+      total += item.price;
+    }
+    return total;
+  };
+
   return (
     <div className='shopping-bar'>
-      <div className='shopping-bar__cart'>
-        <span className='cart-badge'>0</span>
+      <div
+        className={`shopping-bar__cart ${
+          props.cartItems.length > 0
+            ? 'shopping-bar__cart--full'
+            : 'shopping-bar__cart--empty'
+        }`}
+      >
+        <span className='cart-badge'>
+          {props.cartItems ? props.cartItems.length : 0}
+        </span>
       </div>
       <div className='shopping-bar__item-list'>
         <ItemsList />
@@ -18,8 +36,12 @@ const ShoppingBar = () => {
         </div>
         <div className='total-amount__price'>
           <div>
-            <span className='total-amount__coin'>$</span>
-            <span className='total-amount__cost'>45</span>
+            <span className='total-amount__coin'>
+              {coinSymbol(props.coinType)}
+            </span>
+            <span className='total-amount__cost'>
+              {coinFactor(props.coinType, calculateTotal(props.cartItems))}
+            </span>
           </div>
         </div>
       </div>
@@ -32,4 +54,11 @@ const ShoppingBar = () => {
   );
 };
 
-export default ShoppingBar;
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cartItems,
+    coinType: state.coinType,
+  };
+};
+
+export default connect(mapStateToProps, null)(ShoppingBar);

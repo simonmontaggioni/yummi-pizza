@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setClientData } from '../../actions';
 import './DeliveryForm.css';
 import InputSelect from '../InputSelect/InputSelect';
 import InputField from '../InputField/InputField';
@@ -42,7 +44,7 @@ const address = {
 
 const name = {
   label: 'name',
-  id: 'id',
+  id: 'name-id',
   name: 'name',
   value: '',
   placeholder: 'your name',
@@ -50,7 +52,7 @@ const name = {
 };
 const lastName = {
   label: 'lastName',
-  id: 'id',
+  id: 'last-name-id',
   name: 'last-name',
   value: '',
   placeholder: 'your last name',
@@ -65,7 +67,52 @@ const postalCode = {
   readOnly: false,
 };
 
-const DeliveryForm = () => {
+const DeliveryForm = (props) => {
+  let clientData = {
+    name: '',
+    lastName: '',
+    municipallity: '',
+    city: '',
+    parish: '',
+    postalCode: '',
+    street: '',
+    address: '',
+  };
+
+  const handleInputChange = (e) => {
+    console.log(e);
+    switch (e.id) {
+      case 'name-id':
+        clientData.name = e.value;
+        break;
+      case 'last-name-id':
+        clientData.lastName = e.value;
+        break;
+      case 'municipallity':
+        clientData.municipallity = e.value;
+        break;
+      case 'city':
+        clientData.city = e.value;
+        break;
+      case 'parish':
+        clientData.parish = e.value;
+        break;
+      case 'postal-code':
+        clientData.postalCode = e.value;
+        break;
+      case 'street':
+        clientData.street = e.value;
+        break;
+      case 'address':
+        clientData.address = e.value;
+        break;
+      default:
+        break;
+    }
+    console.log(clientData);
+    props.setClientData(clientData);
+  };
+
   return (
     <div className='delivery-form'>
       <div className='delivery-form__title'>
@@ -79,6 +126,7 @@ const DeliveryForm = () => {
           value={name.value}
           placeholder={name.placeholder}
           readOnly={name.readOnly}
+          onInputChange={handleInputChange}
         />
       </div>
       <div className='last-name'>
@@ -89,16 +137,23 @@ const DeliveryForm = () => {
           value={lastName.value}
           placeholder={lastName.placeholder}
           readOnly={lastName.readOnly}
+          onInputChange={handleInputChange}
         />
       </div>
       <div className='city'>
-        <InputSelect id={city.id} options={city.options} label={city.label} />
+        <InputSelect
+          id={city.id}
+          options={city.options}
+          label={city.label}
+          onInputChange={handleInputChange}
+        />
       </div>
       <div className='street'>
         <InputSelect
           id={street.id}
           options={street.options}
           label={street.label}
+          onInputChange={handleInputChange}
         />
       </div>
       <div className='postal-code'>
@@ -109,6 +164,7 @@ const DeliveryForm = () => {
           value={postalCode.value}
           placeholder={postalCode.placeholder}
           readOnly={postalCode.readOnly}
+          onInputChange={handleInputChange}
         />
       </div>
       <div className='municipallity'>
@@ -116,6 +172,7 @@ const DeliveryForm = () => {
           id={municipallity.id}
           options={municipallity.options}
           label={municipallity.label}
+          onInputChange={handleInputChange}
         />
       </div>
       <div className='address-number'>
@@ -123,6 +180,7 @@ const DeliveryForm = () => {
           id={address.id}
           options={address.options}
           label={address.label}
+          onInputChange={handleInputChange}
         />
       </div>
       <div className='parish'>
@@ -130,10 +188,14 @@ const DeliveryForm = () => {
           id={parish.id}
           options={parish.options}
           label={parish.label}
+          onInputChange={handleInputChange}
         />
       </div>
     </div>
   );
 };
+const mapDispatchToProps = {
+  setClientData,
+};
 
-export default DeliveryForm;
+export default connect(null, mapDispatchToProps)(DeliveryForm);
