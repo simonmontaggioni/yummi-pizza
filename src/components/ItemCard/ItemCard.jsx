@@ -14,6 +14,13 @@ const ItemCard = (props) => {
     props.addToCart(item);
   };
 
+  const singleItemsInCart = () => {
+    const singleItemsInCart = props.cartItems.filter(
+      (item) => item.id === props.item.id
+    );
+    return singleItemsInCart.length;
+  };
+
   return (
     <div className='item-card'>
       <div className='item-card__price'>
@@ -33,7 +40,7 @@ const ItemCard = (props) => {
       <div className='item-card__footer'>
         <button className='item-card__button' onClick={handleAddToCart}>
           <span className='button__title'>Add to cart</span>
-          <span className='button-badge'>0</span>
+          <span className='button-badge'>{singleItemsInCart()}</span>
         </button>
       </div>
     </div>
@@ -41,7 +48,10 @@ const ItemCard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { coinType: state.coinType };
+  return {
+    cartItems: state.cartItems,
+    coinType: state.coinType,
+  };
 };
 const mapDispatchToProps = {
   addToCart,
