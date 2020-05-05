@@ -5,7 +5,25 @@ import { addToCart } from '../../actions';
 import { coinFactor, coinSymbol } from '../../utils';
 
 import './ItemCard.css';
-import pizza from '../../assets/static/images/pizza-1.png';
+import margarita from '../../assets/static/images/margarita.svg';
+import stagioni from '../../assets/static/images/stagioni.svg';
+import mexicana from '../../assets/static/images/mexicana.svg';
+import primavera from '../../assets/static/images/primavera.svg';
+import pastorella from '../../assets/static/images/pastorella.svg';
+import hawaiana from '../../assets/static/images/hawaiana.svg';
+import napolitana from '../../assets/static/images/napolitana.svg';
+import lamarinara from '../../assets/static/images/lamarinara.svg';
+
+const pizzaImages = {
+  margarita: margarita,
+  stagioni: stagioni,
+  mexicana: mexicana,
+  primavera: primavera,
+  pastorella: pastorella,
+  hawaiana: hawaiana,
+  napolitana: napolitana,
+  lamarinara: lamarinara,
+};
 
 const ItemCard = (props) => {
   const item = props.item;
@@ -32,7 +50,11 @@ const ItemCard = (props) => {
         </span>
       </div>
       <div className='item-card__image'>
-        <img src={pizza} alt='pizza' />
+        <img
+          src={pizzaImages[props.item.image]}
+          alt='pizza'
+          className='responsive'
+        />
       </div>
       <div className='item-card__title'>
         <span>{item.name}</span>

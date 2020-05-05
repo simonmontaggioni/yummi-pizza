@@ -8,7 +8,7 @@ const list = [
     price: 45,
     ingredients: ['tomato paste', 'mozarrella cheese'],
     id: 'pizza-1',
-    image: 'margarita.svg',
+    image: 'margarita',
   },
   {
     name: 'stagioni',
@@ -23,7 +23,7 @@ const list = [
       'olives',
     ],
     id: 'pizza-2',
-    image: 'stagioni.svg',
+    image: 'stagioni',
   },
   {
     name: 'mexicana',
@@ -36,14 +36,14 @@ const list = [
       'avocado',
     ],
     id: 'pizza-3',
-    image: 'mexicana.svg',
+    image: 'mexicana',
   },
   {
     name: 'primavera',
     price: 45,
     ingredients: ['mozzarella cheese', 'paprika', 'corn', 'egg', 'tomato'],
     id: 'pizza-4',
-    image: 'primavera.svg',
+    image: 'primavera',
   },
   {
     name: 'pastorella',
@@ -56,14 +56,14 @@ const list = [
       'paprika',
     ],
     id: 'pizza-5',
-    image: 'pastorella.svg',
+    image: 'pastorella',
   },
   {
     name: 'hawaiana',
     price: 45,
     ingredients: ['pineapple', 'ham', 'tomato', 'mozzarella cheese', 'spices'],
     id: 'pizza-6',
-    image: 'hawaiana.svg',
+    image: 'hawaiana',
   },
   {
     name: 'napolitana',
@@ -76,14 +76,14 @@ const list = [
       'green olives',
     ],
     id: 'pizza-7',
-    image: 'napolitana.svg',
+    image: 'napolitana',
   },
   {
     name: 'la marinara',
     price: 45,
     ingredients: ['tomato paste', 'oregano', 'garlic', 'basil'],
     id: 'pizza-8',
-    image: 'lamarinara.svg',
+    image: 'lamarinara',
   },
 ];
 
