@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <div className='App-container'>
-      <Router>
+      <Router basename='./'>
         <Switch>
           <Route exact path='/'>
             <WelcomePage />
