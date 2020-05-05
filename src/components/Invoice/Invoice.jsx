@@ -1,27 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { coinFactor, coinSymbol } from '../../utils';
 import './Invoice.css';
 
 const Invoice = (props) => {
   const iva = 16;
-  const delivery = 10;
+  const delivery = coinFactor(props.coinType, 10);
 
-  const calculateIva = (subTotal, iva) => {
-    return (subTotal * iva) / 100;
+  const calculateIva = () => {
+    return (calculateSubTotal() * 16) / 100;
   };
 
-  const calculateSubTotal = (cartItems) => {
+  const calculateSubTotal = () => {
     let subTotal = 0;
-    if (cartItems) {
-      for (let item of cartItems) {
+    if (props.cartItems) {
+      for (let item of props.cartItems) {
         subTotal += item.price;
       }
     }
-    return subTotal;
+    return coinFactor(props.coinType, subTotal);
   };
 
-  const calculateTotal = (subTotal, iva, delivery) => {
-    return subTotal + iva + delivery;
+  const calculateTotal = () => {
+    const total = calculateSubTotal() + calculateIva() + delivery;
+    return total.toFixed(2);
   };
 
   let invoiceItems = [
@@ -51,13 +53,20 @@ const Invoice = (props) => {
             {item.quantity > 0 ? item.name : ''}
           </td>
           <td className='invoice-cell invoice-body-cell'>
-            <span>{item.quantity > 0 ? '$' + item.price : ''}</span>
+            <span>
+              {item.quantity > 0
+                ? `${coinSymbol(props.coinType)}
+                  ${coinFactor(props.coinType, item.price)}`
+                : ''}
+            </span>
           </td>
           <td className='invoice-cell invoice-body-cell'>
             {item.quantity > 0 ? 'x' + item.quantity : ''}
           </td>
           <td className='invoice-cell invoice-body-cell'>
-            {item.quantity ? item.quantity * item.price : ''}
+            {item.quantity
+              ? item.quantity * coinFactor(props.coinType, item.price)
+              : ''}
           </td>
         </tr>
       );
@@ -92,12 +101,16 @@ const Invoice = (props) => {
               <div className='tax'>
                 <span>IVA {iva}%</span>
                 <span>
-                  $ {calculateIva(calculateSubTotal(props.cartItems), iva)}
+                  {coinSymbol(props.coinType)}
+                  {calculateIva()}
                 </span>
               </div>
               <div className='delivery'>
                 <span>Delivery Cost</span>
-                <span>$ {delivery}</span>
+                <span>
+                  {coinSymbol(props.coinType)}
+                  {delivery}
+                </span>
               </div>
             </td>
           </tr>
@@ -111,12 +124,8 @@ const Invoice = (props) => {
               colSpan='2'
               rowSpan='2'
             >
-              $
-              {calculateTotal(
-                calculateSubTotal(props.cartItems),
-                calculateIva(calculateSubTotal(props.cartItems), iva),
-                delivery
-              )}
+              {coinSymbol(props.coinType)}
+              {calculateTotal()}
             </td>
           </tr>
           <tr>
@@ -132,6 +141,7 @@ const Invoice = (props) => {
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cartItems,
+    coinType: state.coinType,
   };
 };
 

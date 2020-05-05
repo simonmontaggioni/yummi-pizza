@@ -12,7 +12,7 @@ const CoinSelector = (props) => {
 
   return (
     <div className='coin-selector'>
-      <div className='coin-logo coin-logo-eur'> </div>
+      <div className={`coin-logo coin-logo-${props.coinType}`}></div>
       <div className='coin-description'>
         <span className='coin-description__radio'>
           <input

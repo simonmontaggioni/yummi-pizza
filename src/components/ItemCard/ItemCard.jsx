@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { addToCart } from '../../actions';
+import { coinFactor, coinSymbol } from '../../utils';
 
 import './ItemCard.css';
 import pizza from '../../assets/static/images/pizza-1.png';
@@ -16,8 +17,12 @@ const ItemCard = (props) => {
   return (
     <div className='item-card'>
       <div className='item-card__price'>
-        <span className='item-card__price--coin'>$</span>
-        <span className='item-card__price--cost'>{item.price}</span>
+        <span className='item-card__price--coin'>
+          {coinSymbol(props.coinType)}
+        </span>
+        <span className='item-card__price--cost'>
+          {coinFactor(props.coinType, item.price)}
+        </span>
       </div>
       <div className='item-card__image'>
         <img src={pizza} alt='pizza' />
@@ -35,8 +40,11 @@ const ItemCard = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return { coinType: state.coinType };
+};
 const mapDispatchToProps = {
   addToCart,
 };
 
-export default connect(null, mapDispatchToProps)(ItemCard);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemCard);

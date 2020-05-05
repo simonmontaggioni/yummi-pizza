@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../actions';
+import { coinFactor, coinSymbol } from '../../utils';
 import './ CartItem.css';
 import itemImage from '../../assets/static/images/pizza-1.png';
 
@@ -35,8 +36,8 @@ const CartItem = (props) => {
       <div className='cart-item__payment-info'>
         <span className='unit-price'> Unit Price</span>
         <span className='price'>
-          <span className='coin'>$</span>
-          {props.item.price}
+          <span className='coin'>{coinSymbol(props.coinType)}</span>
+          {coinFactor(props.coinType, props.item.price)}
         </span>
         <button
           className='cart-item__button--remove'
@@ -49,8 +50,13 @@ const CartItem = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    coinType: state.coinType,
+  };
+};
 const mapDispatchToProps = {
   removeFromCart,
 };
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CartItem);

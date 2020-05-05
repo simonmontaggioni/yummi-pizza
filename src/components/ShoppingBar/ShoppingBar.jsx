@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { coinFactor, coinSymbol } from '../../utils';
 import './ShoppingBar.css';
 import ItemsList from '../ItemsList/ItemsList';
 import { Link } from 'react-router-dom';
@@ -35,9 +36,11 @@ const ShoppingBar = (props) => {
         </div>
         <div className='total-amount__price'>
           <div>
-            <span className='total-amount__coin'>$</span>
+            <span className='total-amount__coin'>
+              {coinSymbol(props.coinType)}
+            </span>
             <span className='total-amount__cost'>
-              {calculateTotal(props.cartItems)}
+              {coinFactor(props.coinType, calculateTotal(props.cartItems))}
             </span>
           </div>
         </div>
@@ -54,6 +57,7 @@ const ShoppingBar = (props) => {
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cartItems,
+    coinType: state.coinType,
   };
 };
 

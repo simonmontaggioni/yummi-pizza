@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { coinFactor, coinSymbol } from '../../utils';
 import { removeFromCart } from '../../actions';
 import './ListItem.css';
 
@@ -15,8 +16,10 @@ const ListItem = (props) => {
         {props.item ? props.item.name : 'loading...'}
       </span>
       <span className='list-item__price'>
-        <span>{`${'$'} `}</span>
-        {props.item ? props.item.price : 'loading...'}
+        <span>{coinSymbol(props.coinType)}</span>
+        {props.item
+          ? coinFactor(props.coinType, props.item.price)
+          : 'loading...'}
       </span>
       <span className='list-item__action' onClick={handleRemoveFromCart}>
         <button>delete</button>
@@ -24,9 +27,11 @@ const ListItem = (props) => {
     </li>
   );
 };
-
+const mapStateToProps = (state) => {
+  return { coinType: state.coinType };
+};
 const mapDispatchToProps = {
   removeFromCart,
 };
 
-export default connect(null, mapDispatchToProps)(ListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
