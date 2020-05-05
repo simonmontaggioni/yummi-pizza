@@ -24,7 +24,6 @@ const pizzaImages = {
 };
 
 const CartItem = (props) => {
-  console.log(props.item);
   const setItemsList = props.item.ingredients.map((ingredient) => (
     <li key={ingredient.title + ingredient} className='order-cart-item'>
       <span>{ingredient}</span>
