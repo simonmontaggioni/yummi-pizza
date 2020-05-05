@@ -8,9 +8,11 @@ const InputField = (props) => {
 
   return (
     <div className='custom-input'>
-      <label className='custom-input__label' htmlFor={props.id}>
-        {props.label}
-      </label>
+      <div className='custom-input__label-wrapper'>
+        <label className='custom-input__label' htmlFor={props.id}>
+          {props.label}
+        </label>
+      </div>
       <div className='input-wrapper'>
         <input
           className='custom-input__field'

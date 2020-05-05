@@ -14,7 +14,7 @@ const InputSelect = (props) => {
 
   return (
     <div className='custom-select'>
-      <div className='label-wrapper'>
+      <div className='custom-select__label-wrapper'>
         <label className='custom-select__label' htmlFor={props.id}>
           {props.label}
         </label>
