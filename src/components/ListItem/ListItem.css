@@ -24,3 +24,15 @@
   text-transform: capitalize;
   text-shadow: 1px 1px 10px black;
 }
+
+.remove-icon {
+  width: 2rem;
+  height: 2rem;
+  background-image: url('../../assets/static/icons/remove-from-cart.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.remove-icon:hover {
+  transform: scale(1.5);
+}

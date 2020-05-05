@@ -22,7 +22,7 @@ const ListItem = (props) => {
           : 'loading...'}
       </span>
       <span className='list-item__action' onClick={handleRemoveFromCart}>
-        <button>delete</button>
+        <div className='remove-icon'></div>
       </span>
     </li>
   );
