@@ -10,7 +10,15 @@ const CartDetail = (props) => {
   return (
     <div className='cart-detail'>
       <div className='cart-detail__list-container'>
-        <ul className='cart-detail__list'>{cartItemsList}</ul>
+        {props.cartItems.length > 0 ? (
+          <ul className='cart-detail__list'>{cartItemsList}</ul>
+        ) : (
+          <div className='cart-detail__empty-list'>
+            <p className='cart-detail__empty-message'>
+              You're no added items yet!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
