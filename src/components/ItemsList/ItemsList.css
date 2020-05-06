@@ -20,18 +20,30 @@
 /* width */
 .shopping-bar__items-list::-webkit-scrollbar {
   width: 0.5rem;
+<<<<<<< HEAD
   /* background-color: rgba(250, 250, 250, 0.226); */
+=======
+  background-color: rgba(250, 250, 250, 0.226);
+>>>>>>> 9dcb5ba5f6544cfea56aa105f07807466901908a
 }
 
 /* Track */
 .shopping-bar__items-list::-webkit-scrollbar-track {
+<<<<<<< HEAD
   box-shadow: inset 0 0 5px rgba(241, 241, 241, 0.555);
+=======
+  box-shadow: inset 0 0 5px rgba(241, 241, 241, 0.787);
+>>>>>>> 9dcb5ba5f6544cfea56aa105f07807466901908a
   border-radius: 0.5rem;
 }
 
 /* Handle */
 .shopping-bar__items-list::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
   background: rgba(226, 226, 226, 0.486);
+=======
+  background: rgba(226, 226, 226, 0.308);
+>>>>>>> 9dcb5ba5f6544cfea56aa105f07807466901908a
   border-radius: 0.5rem;
 }
 
