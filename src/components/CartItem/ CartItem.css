@@ -8,7 +8,8 @@
   background-color: rgba(242, 255, 248, 0.787);
   border-radius: 1rem;
   align-items: center;
-  box-shadow: 0rem 0.2rem 0.8rem 0.2rem rgba(56, 56, 56, 0.87);
+  box-shadow: 0rem 0.2rem 0.8rem 0.2rem rgba(255, 255, 255, 0.692);
+  border: solid 1px rgb(180, 180, 180);
 }
 
 .cart-item__card {
@@ -20,7 +21,7 @@
   border: solid 0.1rem rgba(197, 197, 197, 0.787);
   background-color: rgba(255, 255, 255, 0.699);
   border-radius: 0.5rem;
-  box-shadow: inset 0rem 0rem 0.8rem 0.2rem rgba(163, 163, 163, 0.431);
+  box-shadow: inset 0rem 0rem 0.5rem 0.2rem rgba(149, 149, 149, 0.726);
   position: relative;
 }
 
