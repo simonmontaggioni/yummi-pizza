@@ -23,7 +23,11 @@ const ShoppingBar = (props) => {
             : 'shopping-bar__cart--empty'
         }`}
       >
-        <span className='cart-badge'>
+        <span
+          className={`cart-badge cart-badge-${
+            props.cartItems && props.cartItems.length > 0 ? 'full' : ''
+          }`}
+        >
           {props.cartItems ? props.cartItems.length : 0}
         </span>
       </div>

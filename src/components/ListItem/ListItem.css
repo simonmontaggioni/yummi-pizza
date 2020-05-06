@@ -1,9 +1,9 @@
 .shopping-bar__list-item:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.815);
+  background-color: rgb(240, 239, 219);
 }
 
 .shopping-bar__list-item:nth-child(even) {
-  background-color: rgba(241, 241, 241, 0.828);
+  background-color: rgb(241, 241, 241);
 }
 
 .shopping-bar__list-item {
@@ -18,7 +18,8 @@
   justify-content: space-around;
   box-sizing: border-box;
   border-radius: 0.5rem;
-  box-shadow: 0rem 0.1rem 0.3rem 0.005rem black;
+  box-shadow: inset 0rem 0rem 0.4rem 0.005rem rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 .shopping-bar__list-item:hover {
@@ -28,7 +29,7 @@
 .list-item__name,
 .list-item__price {
   text-transform: capitalize;
-  text-shadow: 1px 1px 10px black;
+  text-shadow: 1px 1px 10px rgb(86, 211, 36);
 }
 
 .remove-icon {
