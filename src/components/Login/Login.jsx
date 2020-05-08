@@ -1,38 +1,27 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logoutRequest } from '../../actions';
+import { logoutRequest, loginRequest } from '../../actions';
 
 import { gravatar } from '../../utils';
 import userIcon from '../../assets/static/icons/user-icon.svg';
 import './Login.css';
 import LoginBox from '../LoginBox/LoginBox';
 
-const apiLoginRequest = (user, password) => {
-  const appPassword = '12345';
-  const appUser = 'user';
-
-  if (user === appUser && appPassword === password) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 const Login = (props) => {
-  const [showLoginBox, setShowLoginBox] = useState({ showLoginBox: false });
-  const { user } = props;
-  if (user) {
-    user.email = 'email@email.com';
-  }
-  const isUserLogged = false; //Object.keys(user).length > 0;
+  const [showLoginBox, setShowLoginBox] = useState(false);
+
+  const isUserLogged = props.user.userName !== '' ? true : false;
 
   const handleLoginRequest = () => {
-    setShowLoginBox(!showLoginBox);
+    setShowLoginBox(true);
+  };
+
+  const confirmLoginRequest = (isConfirmed) => {
+    setShowLoginBox(false);
   };
 
   const handleLogout = () => {
-    props.logoutRequest({});
+    props.logoutRequest({ userName: '', email: '' });
   };
 
   return (
@@ -40,7 +29,7 @@ const Login = (props) => {
       <div className='login-description'>
         <div>
           <span className='login-description__item'>
-            {isUserLogged ? user.email : ''}
+            {isUserLogged ? props.user.email : ''}
           </span>
         </div>
         <div className='login-description__item'>
@@ -59,8 +48,8 @@ const Login = (props) => {
         <div className='icon-login'>
           {isUserLogged ? (
             <img
-              src={gravatar(user.email)}
-              alt={user.email}
+              src={gravatar(props.user.email)}
+              alt={props.user.email}
               className='responsive'
             />
           ) : (
@@ -68,9 +57,9 @@ const Login = (props) => {
           )}
         </div>
       </div>
-      {true ? (
+      {showLoginBox ? (
         <div className='login-container'>
-          <LoginBox />
+          <LoginBox confirmLoginRequest={confirmLoginRequest} />
         </div>
       ) : (
         ''
@@ -81,12 +70,13 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
+    user: state.userData,
   };
 };
 
 const mapDispatchToProps = {
   logoutRequest,
+  loginRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
