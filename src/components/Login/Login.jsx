@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutRequest } from '../../actions';
@@ -6,13 +6,30 @@ import { logoutRequest } from '../../actions';
 import { gravatar } from '../../utils';
 import userIcon from '../../assets/static/icons/user-icon.svg';
 import './Login.css';
+import LoginBox from '../LoginBox/LoginBox';
+
+const apiLoginRequest = (user, password) => {
+  const appPassword = '12345';
+  const appUser = 'user';
+
+  if (user === appUser && appPassword === password) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 const Login = (props) => {
+  const [showLoginBox, setShowLoginBox] = useState({ showLoginBox: false });
   const { user } = props;
   if (user) {
     user.email = 'email@email.com';
   }
   const isUserLogged = false; //Object.keys(user).length > 0;
+
+  const handleLoginRequest = () => {
+    setShowLoginBox(!showLoginBox);
+  };
 
   const handleLogout = () => {
     props.logoutRequest({});
@@ -21,18 +38,22 @@ const Login = (props) => {
   return (
     <div className='login'>
       <div className='login-description'>
-        <span className='login-description__item'>
-          {isUserLogged ? user.email : ''}
-        </span>
-        <span className='login-description__item'>
+        <div>
+          <span className='login-description__item'>
+            {isUserLogged ? user.email : ''}
+          </span>
+        </div>
+        <div className='login-description__item'>
           {isUserLogged ? (
-            <span onClick={handleLogout}>Log Out</span>
+            <div onClick={handleLogout}>
+              <span>Log Out</span>
+            </div>
           ) : (
-            <Link to='/'>
+            <div onClick={handleLoginRequest}>
               <span>Log In</span>
-            </Link>
+            </div>
           )}
-        </span>
+        </div>
       </div>
       <div className='icon-wrapper'>
         <div className='icon-login'>
@@ -47,6 +68,13 @@ const Login = (props) => {
           )}
         </div>
       </div>
+      {true ? (
+        <div className='login-container'>
+          <LoginBox />
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };
