@@ -1,0 +1,44 @@
+.login {
+  width: auto;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  max-width: 3rem;
+  max-height: 3rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.login-description {
+  width: 5rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+.login-description__item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: rgba(78, 76, 76, 0.288);
+  backdrop-filter: blur(10px);
+}

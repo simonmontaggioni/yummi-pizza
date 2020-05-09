@@ -26,6 +26,23 @@ const reducer = (state, action) => {
         ...state,
         coinType: coinType,
       };
+    case 'LOGIN_REQUEST':
+      return {
+        ...state,
+        userData: action.payload,
+      };
+
+    case 'LOGOUT_REQUEST':
+      return {
+        ...state,
+        userData: action.payload,
+      };
+
+    case 'REGISTER_REQUEST':
+      return {
+        ...state,
+        user: action.payload,
+      };
     default:
       return state;
   }

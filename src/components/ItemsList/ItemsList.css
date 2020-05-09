@@ -17,24 +17,21 @@
   padding: 0px 0.5rem 0px 0px;
 }
 
-/* .shopping-bar__items-list::-webkit-scrollbar {
-  display: none;
-} */
-
 /* width */
 .shopping-bar__items-list::-webkit-scrollbar {
   width: 0.5rem;
+  /* background-color: rgba(250, 250, 250, 0.226); */
 }
 
 /* Track */
 .shopping-bar__items-list::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.376);
+  box-shadow: inset 0 0 5px rgba(241, 241, 241, 0.555);
   border-radius: 0.5rem;
 }
 
 /* Handle */
 .shopping-bar__items-list::-webkit-scrollbar-thumb {
-  background: rgba(70, 67, 67, 0.308);
+  background: rgba(226, 226, 226, 0.486);
   border-radius: 0.5rem;
 }
 

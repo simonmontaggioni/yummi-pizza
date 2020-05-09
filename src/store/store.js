@@ -2,7 +2,7 @@ const store = {
   itemsList: [],
   cartItems: [],
   coinType: 'usd',
-  userData: {},
+  userData: { userName: '', email: '' },
   loading: false,
 };
 
