@@ -18,7 +18,7 @@ const reducer = (state, action) => {
     case 'SET_CLIENT_DATA':
       return {
         ...state,
-        userData: action.payload,
+        userData: { ...state.userData, ...action.payload },
       };
     case 'CHANGE_COIN_TYPE':
       const coinType = action.payload;
