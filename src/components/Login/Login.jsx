@@ -25,7 +25,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className='login'>
+    <div className='login-area'>
       <div className='login-description'>
         <div>
           <span className='login-description__item'>
@@ -45,20 +45,18 @@ const Login = (props) => {
         </div>
       </div>
       <div className='icon-wrapper'>
-        <div className='icon-login'>
-          {isUserLogged ? (
-            <img
-              src={gravatar(props.user.email)}
-              alt={props.user.email}
-              className='responsive'
-            />
-          ) : (
-            <img src={userIcon} alt='' />
-          )}
-        </div>
+        {isUserLogged ? (
+          <img
+            src={gravatar(props.user.email)}
+            alt={props.user.email}
+            className='icon-login'
+          />
+        ) : (
+          <img src={userIcon} alt='' />
+        )}
       </div>
       {showLoginBox ? (
-        <div className='login-container'>
+        <div className='login-dialog'>
           <LoginBox confirmLoginRequest={confirmLoginRequest} />
         </div>
       ) : (

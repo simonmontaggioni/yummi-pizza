@@ -1,4 +1,4 @@
-.login {
+.login-area {
   width: auto;
   height: 2.5rem;
   display: flex;
@@ -17,8 +17,18 @@
   align-items: center;
 }
 
+.icon-login {
+  width: 2rem;
+  height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
 .login-description {
-  width: 5rem;
+  width: 100%;
+  min-width: 5rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -26,13 +36,19 @@
   justify-items: center;
 }
 
-.login-description__item {
+.login-description__item span {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 0.5rem;
 }
 
-.login-container {
+.login-description__item:hover {
+  font-size: 120%;
+  font-weight: 900;
+  cursor: pointer;
+}
+.login-dialog {
   width: 100vw;
   height: 100vh;
   position: fixed;
