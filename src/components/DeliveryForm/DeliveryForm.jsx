@@ -80,7 +80,6 @@ const DeliveryForm = (props) => {
   };
 
   const handleInputChange = (e) => {
-    console.log(e);
     switch (e.id) {
       case 'name-id':
         clientData.name = e.value;
@@ -109,7 +108,6 @@ const DeliveryForm = (props) => {
       default:
         break;
     }
-    console.log(clientData);
     props.setClientData(clientData);
   };
 
