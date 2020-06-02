@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "250fe715-88d4-4c18-95e7-62a6a097803a",
+      "userName": "Zoie",
+      "email": "Efrain_Gaylord6@yahoo.com",
+      "password": "12345"
+    },
+    {
+      "id": "22330587-c700-4d00-911d-91de63db1f42",
+      "userName": "Dustin",
+      "email": "Lue.Funk@hotmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "f1183526-aff1-46da-8bfb-976563c6f696",
+      "userName": "Karlee",
+      "email": "Christian31@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "49026077-38f1-42e4-9f00-e230e04effa9",
+      "userName": "Ernie",
+      "email": "Shemar63@yahoo.com",
+      "password": "12345"
+    },
+    {
+      "id": "a6aeca9b-a7c1-45d2-b970-0121c682402a",
+      "userName": "Kelly",
+      "email": "Van_Schimmel@yahoo.com",
+      "password": "12345"
+    }
+  ]
+}
