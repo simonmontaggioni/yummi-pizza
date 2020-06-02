@@ -55,13 +55,13 @@ const LoginBox = (props) => {
 
   return (
     <div className='login-box'>
-      {!loading ? (
-        <div className='login-box__card'>
-          <div className='login-box__card-header'>
-            <span>Welcome to</span>
-            <span>Yummi Pizza</span>
-          </div>
-          <div className='login-box__card-body'>
+      <div className='login-box__card'>
+        <div className='login-box__card-header'>
+          <span>Welcome to</span>
+          <span>Yummi Pizza</span>
+        </div>
+        <div className='login-box__card-body'>
+          {!loading ? (
             <form>
               <div className='login-input-wrapper'>
                 <input
@@ -82,25 +82,25 @@ const LoginBox = (props) => {
                 />
               </div>
             </form>
-          </div>
-          <div className='login-box__card-footer'>
-            <button
-              className='footer-card__button footer-card__button--cancel'
-              onClick={handleCancelClick}
-            >
-              cancel
-            </button>
-            <button
-              className='footer-card__button footer-card__button--login'
-              onClick={handleLoginClick}
-            >
-              login
-            </button>
-          </div>
+          ) : (
+            <Spinner />
+          )}
         </div>
-      ) : (
-        <Spinner />
-      )}
+        <div className='login-box__card-footer'>
+          <button
+            className='footer-card__button footer-card__button--cancel'
+            onClick={handleCancelClick}
+          >
+            cancel
+          </button>
+          <button
+            className='footer-card__button footer-card__button--login'
+            onClick={handleLoginClick}
+          >
+            login
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
