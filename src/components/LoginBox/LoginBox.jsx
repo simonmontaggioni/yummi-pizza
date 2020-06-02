@@ -1,41 +1,56 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { loginRequest } from '../../actions';
+import Api from '../../Api';
+import Spinner from '../Spinner/Spinner';
 import './LoginBox.css';
-
-const apiLoginRequest = (userName, password) => {
-  const appUser = 'user';
-  const appPassword = '12345';
-
-  if (userName === appUser && appPassword === password) {
-    return { userName: 'user', email: 'user@email.com' };
-  } else {
-    return { userName: '' };
-  }
-};
 
 const LoginBox = (props) => {
   const [userData, setUserData] = useState({ userName: '', password: '' });
+  const [loading, setLoading] = useState(false);
+
   const handleUserInputChange = (event) => {
     const userName = event.target.value;
     setUserData({ ...userData, userName: userName });
   };
+
   const handlePasswordInputChange = (event) => {
     const password = event.target.value;
     setUserData({ ...userData, password: password });
   };
+
   const handleCancelClick = () => {
     props.confirmLoginRequest(false);
   };
-  const handleLoginClick = () => {
-    const registeredUser = apiLoginRequest(
+
+  const handleLoginClick = async () => {
+    setLoading(true);
+
+    const registeredUser = await apiLoginRequest(
       userData.userName,
       userData.password
     );
+
     if (registeredUser.userName !== '') {
       props.loginRequest(registeredUser);
     }
-    props.confirmLoginRequest(true);
+
+    props.confirmLoginRequest(false);
+  };
+
+  const apiLoginRequest = async (userName, password) => {
+    let user = { userName: '', email: '' };
+
+    try {
+      const data = await Api.users.loginRequest(userName, password);
+      setLoading(true);
+      console.log(data);
+      user = { userName: data.userName, email: data.email };
+    } catch (error) {
+      setLoading(false);
+    }
+
+    return user;
   };
 
   return (
@@ -46,26 +61,30 @@ const LoginBox = (props) => {
           <span>Yummi Pizza</span>
         </div>
         <div className='login-box__card-body'>
-          <form>
-            <div className='login-input-wrapper'>
-              <input
-                className='login-input'
-                type='text'
-                name='user'
-                id='user'
-                placeholder='Insert your username'
-                onChange={handleUserInputChange}
-              />
-              <input
-                className='login-input'
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Insert your password'
-                onChange={handlePasswordInputChange}
-              />
-            </div>
-          </form>
+          {!loading ? (
+            <form>
+              <div className='login-input-wrapper'>
+                <input
+                  className='login-input'
+                  type='text'
+                  name='user'
+                  id='user'
+                  placeholder='Insert your username'
+                  onChange={handleUserInputChange}
+                />
+                <input
+                  className='login-input'
+                  type='password'
+                  name='password'
+                  id='password'
+                  placeholder='Insert your password'
+                  onChange={handlePasswordInputChange}
+                />
+              </div>
+            </form>
+          ) : (
+            <Spinner />
+          )}
         </div>
         <div className='login-box__card-footer'>
           <button
