@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Header.css';
 import CoinSelector from '../CoinSelector/CoinSelector';
 import Login from '../Login/Login';
 
-const Header = () => {
+const Header = (props) => {
+  const isUserLogged = props.user.userName !== '' ? true : false;
   return (
     <header className='header'>
       <nav className='header__nav'>
@@ -16,7 +18,9 @@ const Header = () => {
         <div className='nav__item'>
           <Login />
         </div>
-        <div className='nav__item nav__item--middle'>Signup</div>
+        {!isUserLogged && (
+          <div className='nav__item nav__item--middle'>Signup</div>
+        )}
         <div className='nav__item'>
           <CoinSelector />
         </div>
@@ -25,4 +29,10 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userData,
+  };
+};
+
+export default connect(mapStateToProps, null)(Header);
