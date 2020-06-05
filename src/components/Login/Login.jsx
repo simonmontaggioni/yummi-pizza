@@ -9,6 +9,7 @@ import LoginBox from '../LoginBox/LoginBox';
 
 const Login = (props) => {
   const [showLoginBox, setShowLoginBox] = useState(false);
+  const [showLoginNotification, setShowLoginNotification] = useState(false);
 
   const isUserLogged = props.user.userName !== '' ? true : false;
 
@@ -18,10 +19,17 @@ const Login = (props) => {
 
   const confirmLoginRequest = (isConfirmed) => {
     setShowLoginBox(false);
+    setShowLoginNotification(true);
+    setTimeout(hideNotification, 5000);
   };
 
   const handleLogout = () => {
     props.logoutRequest({ userName: '', email: '' });
+    hideNotification();
+  };
+
+  const hideNotification = () => {
+    setShowLoginNotification(false);
   };
 
   return (
@@ -52,15 +60,18 @@ const Login = (props) => {
             className='icon-login'
           />
         ) : (
-          <img src={userIcon} alt='' />
+          <img src={userIcon} alt='' className='icon-login' />
+        )}
+        {showLoginNotification && (
+          <div className='notification' onClick={hideNotification}>
+            {'Welcome ' + props.user.userName}
+          </div>
         )}
       </div>
-      {showLoginBox ? (
+      {showLoginBox && (
         <div className='login-dialog'>
           <LoginBox confirmLoginRequest={confirmLoginRequest} />
         </div>
-      ) : (
-        ''
       )}
     </div>
   );
