@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Menu.css';
 import ItemCard from '../ItemCard/ItemCard';
 
@@ -94,15 +94,45 @@ const Menu = () => {
     </li>
   ));
 
+  const myRef = useRef(null);
+  const step = 100;
+  let interval = null;
+
+  const stopMove = () => {
+    clearInterval(interval);
+  };
+
+  const moveSlide = (direction) => {
+    interval = setInterval(() => {
+      if (direction === 'right') {
+        myRef.current.scrollLeft += step;
+      } else {
+        myRef.current.scrollLeft -= step;
+      }
+    }, 100);
+  };
+
   return (
     <div className='menu'>
-      <div className='menu__side menu__side-left'></div>
+      <div className='menu__side'>
+        <div
+          className='menu__side-left-arrow'
+          onMouseDown={() => moveSlide('left')}
+          onMouseUp={stopMove}
+        ></div>
+      </div>
       <div className='menu__content'>
-        <div className='menu__slider'>
+        <div ref={myRef} className='menu__slider'>
           <ul className='menu__list'>{menuList}</ul>
         </div>
       </div>
-      <div className='menu__side menu__side-right'></div>
+      <div className='menu__side'>
+        <div
+          className='menu__side-right-arrow'
+          onMouseDown={() => moveSlide('right')}
+          onMouseUp={stopMove}
+        ></div>
+      </div>
     </div>
   );
 };
