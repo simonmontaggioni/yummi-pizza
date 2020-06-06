@@ -10,30 +10,47 @@
 }
 
 .header__nav {
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 10fr 1fr 1fr 1fr;
+  grid-template-columns: 60% 40%;
   align-items: center;
 }
 
 .nav__title {
-  display: inline-flex;
+  display: flex;
   justify-self: flex-start;
+  align-content: center;
   margin-left: 2rem;
   font-size: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
+  transition: font-size 0.5s;
+}
+
+.nav__title:hover {
+  font-size: 180%;
+  font-weight: 900;
+  /* cursor: pointer; */
+  transition: font-size 0.5s;
+  text-shadow: 0px 0px 10px red;
+}
+
+.nav__items {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .nav__item {
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
+  align-items: center;
   justify-content: center;
   position: relative;
-}
-
-.nav__item--middle {
-  margin: 1rem 1rem 1rem 1rem;
-  border-left: solid 0.1rem rgb(150, 150, 150, 0.7);
-  border-right: solid 0.1rem rgb(150, 150, 150, 0.7);
+  height: auto;
+  margin: 0px 1px;
+  border-right: solid 2px rgba(189, 185, 185, 0.699);
 }
