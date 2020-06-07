@@ -5,6 +5,7 @@
   flex-direction: row;
   font-size: 0.8rem;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .coin-logo {
@@ -15,14 +16,22 @@
   align-items: center;
   background-repeat: no-repeat;
   background-size: contain;
+  transition: transform 1s;
 }
 
 .coin-logo-eur {
   background-image: url('../../assets/static/icons/icon-eur.svg');
+  transition: background-image 1s;
 }
 
 .coin-logo-usd {
   background-image: url('../../assets/static/icons/icon-usd.svg');
+  transition: background-image 1s;
+}
+
+.coin-logo:hover {
+  transform: scale(1.3);
+  transition: transform 1s;
 }
 
 .coin-description {
@@ -38,4 +47,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+  transition: font-size 0.4s;
+}
+
+.coin-description__radio:hover {
+  font-size: 120%;
+  font-weight: 900;
+  cursor: pointer;
+  transition: font-size 0.4s;
+}
+
+.coin-description__radio label,
+input {
+  cursor: pointer;
 }

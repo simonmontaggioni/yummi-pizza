@@ -15,14 +15,14 @@ const Header = (props) => {
             <span>The Yummi Pizza</span>
           </Link>
         </div>
-        <div className='nav__item'>
-          <Login />
-        </div>
-        {!isUserLogged && (
-          <div className='nav__item nav__item--middle'>Signup</div>
-        )}
-        <div className='nav__item'>
-          <CoinSelector />
+        <div className='nav__items'>
+          <div className='nav__item'>
+            <Login />
+          </div>
+          {!isUserLogged && <div className='nav__item'>Signup</div>}
+          <div className='nav__item'>
+            <CoinSelector />
+          </div>
         </div>
       </nav>
     </header>

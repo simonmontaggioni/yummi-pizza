@@ -10,11 +10,13 @@
   height: 13vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   overflow-y: scroll;
   overflow-x: hidden;
   box-sizing: border-box;
   margin: 0px;
-  padding: 0px 0.5rem 0px 0px;
+  padding: 0px;
+  padding-inline-start: 0px;
 }
 
 /* width */
