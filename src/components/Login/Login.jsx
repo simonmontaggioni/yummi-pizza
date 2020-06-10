@@ -63,7 +63,7 @@ const Login = (props) => {
         ) : (
           <img src={userIcon} alt='' className='icon-login' />
         )}
-        {showLoginNotification && (
+        {showLoginNotification && props.user.userName !== '' && (
           <div className='notification-wrapper' onClick={hideNotification}>
             <Notification text={`Welcome ${props.user.userName}`} />;
           </div>
