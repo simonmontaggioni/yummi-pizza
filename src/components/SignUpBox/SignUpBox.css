@@ -63,8 +63,8 @@
 }
 
 .wrong-input {
-  border: solid 2px red;
-  background-color: rgb(251, 200, 200);
+  border: solid 2px rgb(253, 101, 101);
+  background-color: rgb(255, 200, 200);
 }
 
 .signup-box__card-footer {
