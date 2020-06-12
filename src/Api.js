@@ -56,6 +56,31 @@ const Api = {
       return user;
     },
   },
+  products: {
+    list() {
+      return callApi('/products');
+    },
+    create(product) {
+      return callApi(`/products`, {
+        method: 'POST',
+        body: JSON.stringify(product),
+      });
+    },
+    read(productId) {
+      return callApi(`/products/${productId}`);
+    },
+    update(productId, updates) {
+      return callApi(`/products/${productId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    remove(productId) {
+      return callApi(`/products/${productId}`, {
+        method: 'DELETE',
+      });
+    },
+  },
 };
 
 export default Api;

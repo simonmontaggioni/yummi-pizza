@@ -1,96 +1,42 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Menu.css';
 import ItemCard from '../ItemCard/ItemCard';
-
-const list = [
-  {
-    name: 'margarita',
-    price: 45,
-    ingredients: ['tomato paste', 'mozarrella cheese'],
-    id: 'pizza-1',
-    image: 'margarita',
-  },
-  {
-    name: 'stagioni',
-    price: 45,
-    ingredients: [
-      'mozarrella cheese',
-      'parmesan cheese',
-      'basil',
-      'mushrooms',
-      'ham',
-      'artichokes',
-      'olives',
-    ],
-    id: 'pizza-2',
-    image: 'stagioni',
-  },
-  {
-    name: 'mexicana',
-    price: 45,
-    ingredients: [
-      'onion',
-      'paprika',
-      'ground beef',
-      'mozarrella cheese',
-      'avocado',
-    ],
-    id: 'pizza-3',
-    image: 'mexicana',
-  },
-  {
-    name: 'primavera',
-    price: 45,
-    ingredients: ['mozzarella cheese', 'paprika', 'corn', 'egg', 'tomato'],
-    id: 'pizza-4',
-    image: 'primavera',
-  },
-  {
-    name: 'pastorella',
-    price: 45,
-    ingredients: [
-      'cottage cheese',
-      'mozzarella cheese',
-      'salame',
-      'basil',
-      'paprika',
-    ],
-    id: 'pizza-5',
-    image: 'pastorella',
-  },
-  {
-    name: 'hawaiana',
-    price: 45,
-    ingredients: ['pineapple', 'ham', 'tomato', 'mozzarella cheese', 'spices'],
-    id: 'pizza-6',
-    image: 'hawaiana',
-  },
-  {
-    name: 'napolitana',
-    price: 45,
-    ingredients: [
-      'tomato paste',
-      'tomato',
-      'mozzarella cheese',
-      'parsley',
-      'green olives',
-    ],
-    id: 'pizza-7',
-    image: 'napolitana',
-  },
-  {
-    name: 'la marinara',
-    price: 45,
-    ingredients: ['tomato paste', 'oregano', 'garlic', 'basil'],
-    id: 'pizza-8',
-    image: 'lamarinara',
-  },
-];
+import Api from '../../Api';
 
 const Menu = () => {
+  const [loading, setLoading] = useState(true);
+  const [list, setList] = useState([]);
+
+  const apiProductsRequest = async () => {
+    let data = null;
+    try {
+      data = await Api.products.list();
+      setList(data);
+      setLoading(false);
+    } catch (error) {}
+    return data;
+  };
+
+  useEffect(() => {
+    apiProductsRequest();
+    setLoading(false);
+  }, []);
+
   const menuList = list.map((item, index) => (
     <li key={item.name + index.toString()} className='menu__list--item'>
-      <ItemCard item={item} />
+      <ItemCard
+        item={
+          loading
+            ? {
+                name: null,
+                price: null,
+                ingredients: [],
+                id: null,
+                image: null,
+              }
+            : item
+        }
+      />
     </li>
   ));
 
