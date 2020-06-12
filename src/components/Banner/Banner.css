@@ -36,6 +36,7 @@
   box-shadow: 0rem 0rem 1rem 1rem rgba(183, 235, 136, 0.76);
   letter-spacing: 0.1rem;
   animation: jello-horizontal 2s both;
+  cursor: pointer;
 }
 
 @-webkit-keyframes jello-horizontal {
