@@ -110,7 +110,7 @@
 }
 
 .button__title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   text-shadow: 0.2rem 0.2rem 0.2rem rgba(15, 15, 15, 0.774);
   text-transform: uppercase;
@@ -118,14 +118,17 @@
 
 .button-badge {
   width: auto;
-  min-width: 1rem;
-  height: auto;
+  min-width: 2rem;
+  height: 2rem;
   background-color: seashell;
   border: solid 0.4rem seashell;
   border-radius: 50%;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0rem 0rem 1rem 0.1rem rgb(77, 77, 77);
 }
 
