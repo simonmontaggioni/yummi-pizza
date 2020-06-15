@@ -38,19 +38,26 @@
 
 .back-button {
   display: flex;
-  height: 70%;
+  height: 5vh;
   width: 10vw;
   background-color: rgba(255, 53, 93, 0.774);
   color: rgb(255, 255, 255);
-  /* float: right; */
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.3rem;
   justify-content: center;
+  align-items: center;
   position: absolute;
   right: 1rem;
   top: 0rem;
   border-radius: 0.5rem;
   outline: none;
+  cursor: pointer;
+  transition: background-color ease 0.5s;
+}
+
+.back-button:hover {
+  background-color: rgb(249, 102, 131);
+  transition: background-color ease 0.5s;
 }
 
 .order-page__cart {
