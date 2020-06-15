@@ -24,6 +24,14 @@
   /* background-color: rgba(168, 253, 245, 0.719); */
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .invoice__title {
   font-size: 2rem;
 }

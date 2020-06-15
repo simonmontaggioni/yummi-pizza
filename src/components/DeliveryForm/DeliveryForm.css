@@ -1,27 +1,24 @@
 .delivery-form {
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 90%;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-areas: 'title title' 'a a' 'b b' 'c c' 'd d' 'e e' 'f f' 'g g' 'h h';
-  /* grid-template-rows: repeat(6, auto); */
-  /* grid-template-columns: 1fr 1fr; */
   align-items: center;
-  /* justify-content: center; */
 }
 
 .delivery-form__title {
   display: grid;
   grid-area: title;
-  margin: 0;
-  margin-top: 2.5rem;
+  margin: 2rem 0rem 1rem 0rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   text-shadow: 0px 1px 10px rgb(122, 255, 104);
   color: rgb(0, 0, 0);
 }
 .delivery-form__title h2 {
+  font-size: 2rem;
   margin: 0;
 }
 .name {
