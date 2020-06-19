@@ -6,6 +6,7 @@ import { gravatar } from '../../utils';
 import userIcon from '../../assets/static/icons/user-icon.svg';
 import './Login.css';
 import LoginBox from '../LoginBox/LoginBox';
+import Notification from '../Notification/Notification';
 
 const Login = (props) => {
   const [showLoginBox, setShowLoginBox] = useState(false);
@@ -62,9 +63,9 @@ const Login = (props) => {
         ) : (
           <img src={userIcon} alt='' className='icon-login' />
         )}
-        {showLoginNotification && (
-          <div className='notification' onClick={hideNotification}>
-            {'Welcome ' + props.user.userName}
+        {showLoginNotification && props.user.userName !== '' && (
+          <div className='notification-wrapper' onClick={hideNotification}>
+            <Notification text={`Welcome ${props.user.userName}`} />;
           </div>
         )}
       </div>

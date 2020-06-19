@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './Header.css';
 import CoinSelector from '../CoinSelector/CoinSelector';
 import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
 
 const Header = (props) => {
   const isUserLogged = props.user.userName !== '' ? true : false;
@@ -19,7 +20,11 @@ const Header = (props) => {
           <div className='nav__item'>
             <Login />
           </div>
-          {!isUserLogged && <div className='nav__item'>Signup</div>}
+          {!isUserLogged && (
+            <div className='nav__item'>
+              <SignUp />
+            </div>
+          )}
           <div className='nav__item'>
             <CoinSelector />
           </div>

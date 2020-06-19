@@ -38,7 +38,13 @@ class Billing extends React.Component {
             <div className='form'>
               <DeliveryForm />
             </div>
-            <div>
+            <div className='buttons-group'>
+              <button
+                className='invoice__payment-button--check'
+                onClick={this.handleFlipFrontClick}
+              >
+                Check Order
+              </button>
               <button
                 className='invoice__payment-button'
                 onClick={this.handleFlipFrontClick}

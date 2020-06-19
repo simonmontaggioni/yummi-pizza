@@ -1,0 +1,24 @@
+.signup-text {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 0.5rem;
+  transition: font-size 0.4s;
+}
+
+.signup-text:hover {
+  font-size: 120%;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.signup-dialog {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: rgba(78, 76, 76, 0.288);
+  backdrop-filter: blur(10px);
+}

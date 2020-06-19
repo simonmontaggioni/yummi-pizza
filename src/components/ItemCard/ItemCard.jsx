@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { addToCart } from '../../actions';
@@ -13,6 +13,7 @@ import pastorella from '../../assets/static/images/pastorella.svg';
 import hawaiana from '../../assets/static/images/hawaiana.svg';
 import napolitana from '../../assets/static/images/napolitana.svg';
 import lamarinara from '../../assets/static/images/lamarinara.svg';
+import Spinner from '../Spinner/Spinner';
 
 const pizzaImages = {
   margarita: margarita,
@@ -26,6 +27,7 @@ const pizzaImages = {
 };
 
 const ItemCard = (props) => {
+  const [loading, setLoading] = useState(true);
   const item = props.item;
 
   const handleAddToCart = (event) => {
@@ -39,6 +41,10 @@ const ItemCard = (props) => {
     return singleItemsInCart.length;
   };
 
+  const handleImageLoadEvent = () => {
+    setLoading(false);
+  };
+
   return (
     <div className='item-card'>
       <div className='item-card__price'>
@@ -46,18 +52,28 @@ const ItemCard = (props) => {
           {coinSymbol(props.coinType)}
         </span>
         <span className='item-card__price--cost'>
-          {coinFactor(props.coinType, item.price)}
+          {item.price === null ? 0 : coinFactor(props.coinType, item.price)}
         </span>
       </div>
       <div className='item-card__image'>
-        <img
-          src={pizzaImages[props.item.image]}
-          alt='pizza'
-          className='responsive'
-        />
+        {item.image === null ? (
+          ''
+        ) : (
+          <img
+            src={pizzaImages[item.image]}
+            alt='pizza'
+            className='responsive'
+            onLoad={handleImageLoadEvent}
+          />
+        )}
+        {loading && (
+          <span className='spinner'>
+            <Spinner />
+          </span>
+        )}
       </div>
       <div className='item-card__title'>
-        <span>{item.name}</span>
+        <span>{item.name === null ? 'loading...' : item.name}</span>
       </div>
       <div className='item-card__footer'>
         <button className='item-card__button' onClick={handleAddToCart}>
