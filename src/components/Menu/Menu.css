@@ -68,6 +68,7 @@
   scroll-behavior: smooth;
   border-radius: 7rem;
   align-items: center;
+  height: 100%;
 }
 
 .menu__list {
@@ -75,10 +76,15 @@
   display: flex;
   padding-inline-start: 2rem;
   padding-inline-end: 2rem;
+  height: 100%;
+  margin: 0px;
+  align-items: center;
 }
 
 .menu__list--item {
   margin: 1rem;
+  width: 40vh;
+  height: 50vh;
 }
 
 .menu__slider::-webkit-scrollbar {
