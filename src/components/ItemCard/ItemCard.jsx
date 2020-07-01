@@ -30,6 +30,15 @@ const ItemCard = (props) => {
   const [loading, setLoading] = useState(true);
   const item = props.item;
 
+  const [rotate, setRotate] = useState('flip-front');
+
+  const handleFlipBackClick = () => {
+    setRotate('flip-back');
+  };
+  const handleFlipFrontClick = () => {
+    setRotate('flip-front');
+  };
+
   const handleAddToCart = (event) => {
     props.addToCart(item);
   };
@@ -45,41 +54,68 @@ const ItemCard = (props) => {
     setLoading(false);
   };
 
+  const setItemsList = props.item.ingredients.map((ingredient) => (
+    <li key={ingredient.title + ingredient} className='order-cart-item'>
+      <span>{ingredient}</span>
+    </li>
+  ));
+
   return (
-    <div className='item-card'>
-      <div className='item-card__price'>
-        <span className='item-card__price--coin'>
-          {coinSymbol(props.coinType)}
-        </span>
-        <span className='item-card__price--cost'>
-          {item.price === null ? 0 : coinFactor(props.coinType, item.price)}
-        </span>
-      </div>
-      <div className='item-card__image'>
-        {item.image === null ? (
-          ''
-        ) : (
-          <img
-            src={pizzaImages[item.image]}
-            alt='pizza'
-            className='responsive'
-            onLoad={handleImageLoadEvent}
-          />
-        )}
-        {loading && (
-          <span className='spinner'>
-            <Spinner />
-          </span>
-        )}
-      </div>
-      <div className='item-card__title'>
-        <span>{item.name === null ? 'loading...' : item.name}</span>
-      </div>
-      <div className='item-card__footer'>
-        <button className='item-card__button' onClick={handleAddToCart}>
-          <span className='button__title'>Add to cart</span>
-          <span className='button-badge'>{singleItemsInCart()}</span>
-        </button>
+    <div className='item-flip-card'>
+      <div className={`item-flip-card-inner ${rotate}`}>
+        <div className='item-card item-flip-card-front'>
+          <div className='item-card__price'>
+            <span className='item-card__price--coin'>
+              {coinSymbol(props.coinType)}
+            </span>
+            <span className='item-card__price--cost'>
+              {item.price === null ? 0 : coinFactor(props.coinType, item.price)}
+            </span>
+          </div>
+          <div className='item-card__image'>
+            {item.image === null ? (
+              ''
+            ) : (
+              <img
+                src={pizzaImages[item.image]}
+                alt='pizza'
+                className='responsive'
+                onLoad={handleImageLoadEvent}
+              />
+            )}
+            {loading && (
+              <span className='spinner'>
+                <Spinner />
+              </span>
+            )}
+          </div>
+          <div className='item-card__info-section'>
+            <span className='item-card__item-title'>
+              {item.name === null ? 'loading...' : item.name}
+            </span>
+            <span
+              className='item-card__ingredients-button'
+              onClick={handleFlipBackClick}
+            >
+              Ingredients
+            </span>
+          </div>
+          <div className='item-card__footer'>
+            <button className='item-card__button' onClick={handleAddToCart}>
+              <span className='button__title'>Add to cart</span>
+              <span className='button-badge'>{singleItemsInCart()}</span>
+            </button>
+          </div>
+        </div>
+        <div
+          className='item-card-back item-flip-card-back'
+          onClick={handleFlipFrontClick}
+        >
+          <div className='item-card__details-title'>
+            <span>Ingredients</span>
+          </div>
+          <ul className='item-card__details-list'>{setItemsList}</ul>
+        </div>
       </div>
     </div>
   );
