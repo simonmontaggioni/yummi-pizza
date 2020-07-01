@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setClientData } from '../../actions';
+import { setDeliveryData } from '../../actions';
 import './DeliveryForm.css';
 import InputSelect from '../InputSelect/InputSelect';
 import InputField from '../InputField/InputField';
@@ -8,12 +8,14 @@ import InputField from '../InputField/InputField';
 const city = {
   id: 'city',
   options: ['city 1', 'city 2', 'city 3', 'city 4', 'city 5'],
+  placeholder: 'Choose your city',
   label: 'city',
   readOnly: true,
 };
 const street = {
   id: 'street',
   options: ['street 1', 'street 2', 'street 3', 'street 4', 'street 5'],
+  placeholder: 'Choose your street',
   label: 'street',
   readOnly: true,
 };
@@ -26,25 +28,28 @@ const municipallity = {
     'municipallity 4',
     'municipallity 5',
   ],
+  placeholder: 'Choose your municipallity',
   label: 'municipallity',
   readOnly: true,
 };
 const parish = {
   id: 'parish',
   options: ['parish 1', 'parish 2', 'parish 3', 'parish 4', 'parish 5'],
+  placeholder: 'Choose your parish',
   label: 'parish',
   readOnly: true,
 };
 const address = {
   id: 'address',
   options: ['address 1', 'address 2', 'address 3', 'address 4', 'address 5'],
+  placeholder: 'Choose your address',
   label: 'address',
   readOnly: true,
 };
 
 const name = {
   label: 'name',
-  id: 'name-id',
+  id: 'name',
   name: 'name',
   value: '',
   placeholder: 'your name',
@@ -52,7 +57,7 @@ const name = {
 };
 const lastName = {
   label: 'lastName',
-  id: 'last-name-id',
+  id: 'last-name',
   name: 'last-name',
   value: '',
   placeholder: 'your last name',
@@ -60,7 +65,7 @@ const lastName = {
 };
 const postalCode = {
   label: 'postal-code',
-  id: 'postal-code-id',
+  id: 'postal-code',
   name: 'postal-code',
   value: '',
   placeholder: 'postal code',
@@ -68,47 +73,38 @@ const postalCode = {
 };
 
 const DeliveryForm = (props) => {
-  let clientData = {
-    name: '',
-    lastName: '',
-    municipallity: '',
-    city: '',
-    parish: '',
-    postalCode: '',
-    street: '',
-    address: '',
-  };
+  let deliveryData = props.deliveryData;
 
   const handleInputChange = (e) => {
     switch (e.id) {
-      case 'name-id':
-        clientData.name = e.value;
+      case 'name':
+        deliveryData.name = e.value;
         break;
-      case 'last-name-id':
-        clientData.lastName = e.value;
+      case 'last-name':
+        deliveryData.lastName = e.value;
         break;
       case 'municipallity':
-        clientData.municipallity = e.value;
+        deliveryData.municipallity = e.value;
         break;
       case 'city':
-        clientData.city = e.value;
+        deliveryData.city = e.value;
         break;
       case 'parish':
-        clientData.parish = e.value;
+        deliveryData.parish = e.value;
         break;
       case 'postal-code':
-        clientData.postalCode = e.value;
+        deliveryData.postalCode = e.value;
         break;
       case 'street':
-        clientData.street = e.value;
+        deliveryData.street = e.value;
         break;
       case 'address':
-        clientData.address = e.value;
+        deliveryData.address = e.value;
         break;
       default:
         break;
     }
-    props.setClientData(clientData);
+    props.setDeliveryData(deliveryData);
   };
 
   return (
@@ -121,7 +117,7 @@ const DeliveryForm = (props) => {
           label={name.label}
           id={name.id}
           name={name.name}
-          value={name.value}
+          value={props.deliveryData.name}
           placeholder={name.placeholder}
           readOnly={name.readOnly}
           onInputChange={handleInputChange}
@@ -132,7 +128,7 @@ const DeliveryForm = (props) => {
           label={lastName.label}
           id={lastName.id}
           name={lastName.name}
-          value={lastName.value}
+          value={props.deliveryData.lastName}
           placeholder={lastName.placeholder}
           readOnly={lastName.readOnly}
           onInputChange={handleInputChange}
@@ -143,6 +139,12 @@ const DeliveryForm = (props) => {
           id={city.id}
           options={city.options}
           label={city.label}
+          selected={
+            props.deliveryData.city === ''
+              ? city.placeholder
+              : props.deliveryData.city
+          }
+          placeholder={city.placeholder}
           onInputChange={handleInputChange}
         />
       </div>
@@ -151,6 +153,12 @@ const DeliveryForm = (props) => {
           id={street.id}
           options={street.options}
           label={street.label}
+          selected={
+            props.deliveryData.street === ''
+              ? street.placeholder
+              : props.deliveryData.street
+          }
+          placeholder={street.placeholder}
           onInputChange={handleInputChange}
         />
       </div>
@@ -159,7 +167,7 @@ const DeliveryForm = (props) => {
           label={postalCode.label}
           id={postalCode.id}
           name={postalCode.name}
-          value={postalCode.value}
+          value={props.deliveryData.postalCode}
           placeholder={postalCode.placeholder}
           readOnly={postalCode.readOnly}
           onInputChange={handleInputChange}
@@ -170,6 +178,12 @@ const DeliveryForm = (props) => {
           id={municipallity.id}
           options={municipallity.options}
           label={municipallity.label}
+          selected={
+            props.deliveryData.municipallity === ''
+              ? municipallity.placeholder
+              : props.deliveryData.municipallity
+          }
+          placeholder={municipallity.placeholder}
           onInputChange={handleInputChange}
         />
       </div>
@@ -178,6 +192,12 @@ const DeliveryForm = (props) => {
           id={address.id}
           options={address.options}
           label={address.label}
+          selected={
+            props.deliveryData.address === ''
+              ? address.placeholder
+              : props.deliveryData.address
+          }
+          placeholder={address.placeholder}
           onInputChange={handleInputChange}
         />
       </div>
@@ -186,6 +206,12 @@ const DeliveryForm = (props) => {
           id={parish.id}
           options={parish.options}
           label={parish.label}
+          selected={
+            props.deliveryData.parish === ''
+              ? parish.placeholder
+              : props.deliveryData.parish
+          }
+          placeholder={parish.placeholder}
           onInputChange={handleInputChange}
         />
       </div>
@@ -193,7 +219,13 @@ const DeliveryForm = (props) => {
   );
 };
 const mapDispatchToProps = {
-  setClientData,
+  setDeliveryData,
 };
 
-export default connect(null, mapDispatchToProps)(DeliveryForm);
+const mapStateToProps = (state) => {
+  return {
+    deliveryData: state.deliveryData,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeliveryForm);

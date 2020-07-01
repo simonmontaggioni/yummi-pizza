@@ -13,6 +13,11 @@ export const setClientData = (payload) => ({
   payload,
 });
 
+export const setDeliveryData = (payload) => ({
+  type: 'SET_DELIVERY_DATA',
+  payload,
+});
+
 export const changeCoinType = (payload) => ({
   type: 'CHANGE_COIN_TYPE',
   payload,

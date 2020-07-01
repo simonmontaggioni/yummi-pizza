@@ -42,8 +42,7 @@ select.custom-select__input {
   font-size: 0.8rem;
   height: 100%;
   padding-left: 1rem;
-  width: 90%;
-  margin-left: 1rem;
+  width: 100%;
   text-align: left;
   text-transform: capitalize;
 }

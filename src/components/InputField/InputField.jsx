@@ -18,7 +18,7 @@ const InputField = (props) => {
           className='custom-input__field'
           id={props.id}
           name={props.name}
-          //   value={props.value}
+          value={props.value}
           placeholder={props.placeholder}
           readOnly={props.readOnly}
           onChange={handleInputChange}

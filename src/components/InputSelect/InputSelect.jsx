@@ -7,7 +7,12 @@ const InputSelect = (props) => {
   };
 
   const optionList = props.options.map((option) => (
-    <option className='custom-select__option' key={option} value={option}>
+    <option
+      className='custom-select__option'
+      key={option}
+      value={option}
+      disabled={option.includes('Choose ') ? true : false}
+    >
       {option}
     </option>
   ));
@@ -24,11 +29,19 @@ const InputSelect = (props) => {
           className='custom-select__input'
           id={props.id}
           name={props.name}
-          value={props.value}
           placeholder={props.placeholder}
           readOnly={props.readOnly}
           onChange={handleInputChange}
+          value={props.selected}
         >
+          <option
+            className='custom-select__option'
+            key={props.placeholder}
+            value={props.placeholder}
+            disabled={true}
+          >
+            {props.placeholder}
+          </option>
           {optionList}
         </select>
       </div>
