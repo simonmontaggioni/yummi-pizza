@@ -96,6 +96,25 @@
   outline: none;
 }
 
+.disabled-button {
+  width: 90%;
+  height: 7vh;
+  box-shadow: 0rem 0.9rem 0.56rem -0.5rem #a3a3a3;
+  background: linear-gradient(to bottom, #cacac9d2 5%, #646464 100%);
+  background-color: #a1a194;
+  border-radius: 0.8rem;
+  border: 0.1rem solid #464644;
+  display: inline-block;
+  cursor: not-allowed;
+  color: rgb(0, 0, 0);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0rem 0.2rem 0.1rem #ffffff;
+  text-transform: uppercase;
+  outline: none;
+}
+
 .invoice__payment-button--check:hover {
   background: linear-gradient(to bottom, #dceedefb 5%, #8dac3a 100%);
   background-color: #b4b55a;

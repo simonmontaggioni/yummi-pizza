@@ -20,6 +20,11 @@ const reducer = (state, action) => {
         ...state,
         userData: { ...state.userData, ...action.payload },
       };
+    case 'SET_DELIVERY_DATA':
+      return {
+        ...state,
+        deliveryData: { ...state.deliveryData, ...action.payload },
+      };
     case 'CHANGE_COIN_TYPE':
       const coinType = action.payload;
       return {
