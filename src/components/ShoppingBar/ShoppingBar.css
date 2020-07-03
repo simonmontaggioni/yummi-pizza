@@ -48,11 +48,11 @@
   position: relative;
   top: 0.1rem;
   right: -0.4rem;
-  box-shadow: 0px 0px 50px 20px rgba(200, 5, 5, 0.733);
+  /* box-shadow: 0px 0px 50px 20px rgba(200, 5, 5, 0.733); */
 }
 
 .cart-badge-full {
-  box-shadow: 0px 0px 50px 10px rgb(5, 255, 5);
+  /* box-shadow: 0px 0px 50px 10px rgb(5, 255, 5); */
 }
 
 .shopping-bar__item-list {

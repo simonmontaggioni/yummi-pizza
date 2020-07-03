@@ -5,14 +5,14 @@ import { addToCart } from '../../actions';
 import { coinFactor, coinSymbol } from '../../utils';
 
 import './ItemCard.css';
-import margarita from '../../assets/static/images/margarita.svg';
-import stagioni from '../../assets/static/images/stagioni.svg';
-import mexicana from '../../assets/static/images/mexicana.svg';
-import primavera from '../../assets/static/images/primavera.svg';
-import pastorella from '../../assets/static/images/pastorella.svg';
-import hawaiana from '../../assets/static/images/hawaiana.svg';
-import napolitana from '../../assets/static/images/napolitana.svg';
-import lamarinara from '../../assets/static/images/lamarinara.svg';
+import margarita from '../../assets/static/images/margarita.jpg';
+import stagioni from '../../assets/static/images/stagioni.jpg';
+import mexicana from '../../assets/static/images/mexicana.jpg';
+import primavera from '../../assets/static/images/primavera.jpg';
+import pastorella from '../../assets/static/images/pastorella.jpg';
+import hawaiana from '../../assets/static/images/hawaiana.jpg';
+import napolitana from '../../assets/static/images/napolitana.jpg';
+import lamarinara from '../../assets/static/images/lamarinara.jpg';
 import Spinner from '../Spinner/Spinner';
 
 const pizzaImages = {
@@ -79,7 +79,7 @@ const ItemCard = (props) => {
               <img
                 src={pizzaImages[item.image]}
                 alt='pizza'
-                className='responsive'
+                className='item-image'
                 onLoad={handleImageLoadEvent}
               />
             )}

@@ -20,12 +20,12 @@
 }
 
 .coin-logo-eur {
-  background-image: url('../../assets/static/icons/icon-eur.svg');
+  background-image: url('../../assets/static/icons/icon-eur.png');
   transition: background-image 1s;
 }
 
 .coin-logo-usd {
-  background-image: url('../../assets/static/icons/icon-usd.svg');
+  background-image: url('../../assets/static/icons/icon-usd.png');
   transition: background-image 1s;
 }
 
