@@ -1,6 +1,6 @@
 .cart-detail {
   width: 98%;
-  height: 100%;
+  height: 85vh;
   box-sizing: border-box;
 }
 
@@ -40,7 +40,7 @@
 
 .cart-detail__list {
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   display: block;
   flex-direction: column;
   overflow-y: auto;
