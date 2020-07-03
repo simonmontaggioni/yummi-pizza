@@ -5,7 +5,16 @@ import Api from '../../Api';
 
 const Menu = () => {
   const [loading, setLoading] = useState(true);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState([
+    { name: 'mockItem1' },
+    { name: 'mockItem2' },
+    { name: 'mockItem3' },
+    { name: 'mockItem4' },
+    { name: 'mockItem5' },
+    { name: 'mockItem6' },
+    { name: 'mockItem7' },
+    { name: 'mockItem8' },
+  ]);
 
   const apiProductsRequest = async () => {
     let data = null;
@@ -21,26 +30,23 @@ const Menu = () => {
     apiProductsRequest();
   }, []);
 
-  let menuList = null;
-  if (!loading) {
-    menuList = list.map((item, index) => (
-      <li key={item.name + index.toString()} className='menu__list--item'>
-        <ItemCard
-          item={
-            loading
-              ? {
-                  name: null,
-                  price: null,
-                  ingredients: [],
-                  id: null,
-                  image: null,
-                }
-              : item
-          }
-        />
-      </li>
-    ));
-  }
+  const menuList = list.map((item, index) => (
+    <li key={item.name + index.toString()} className='menu__list--item'>
+      <ItemCard
+        item={
+          loading
+            ? {
+                name: null,
+                price: null,
+                ingredients: ['loading', 'loading', 'loading'],
+                id: null,
+                image: null,
+              }
+            : item
+        }
+      />
+    </li>
+  ));
 
   const myRef = useRef(null);
   const step = 100;
@@ -71,13 +77,7 @@ const Menu = () => {
       </div>
       <div className='menu__content'>
         <div ref={myRef} className='menu__slider'>
-          {loading ? (
-            <div className='loading-text text-shadow-drop-center'>
-              Loading...
-            </div>
-          ) : (
-            <ul className='menu__list slide-in-bck-center'>{menuList}</ul>
-          )}
+          <ul className='menu__list slide-in-bck-center'>{menuList}</ul>
         </div>
       </div>
       <div className='menu__side'>
