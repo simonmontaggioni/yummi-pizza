@@ -79,7 +79,7 @@ const ItemCard = (props) => {
               <img
                 src={pizzaImages[item.image]}
                 alt='pizza'
-                className='item-image'
+                className='item-image rotate-in-center '
                 onLoad={handleImageLoadEvent}
               />
             )}
