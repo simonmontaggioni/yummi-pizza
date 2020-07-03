@@ -37,7 +37,7 @@
 .remove-icon {
   width: 2rem;
   height: 2rem;
-  background-image: url('../../assets/static/icons/remove-from-cart.svg');
+  background-image: url('../../assets/static/icons/remove-from-cart.png');
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;

@@ -7,14 +7,17 @@ a:visited {
 }
 
 .App-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 8vh 92fr;
   text-align: center;
   justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #feffd1;
+  background-color: #000000;
+  overflow: hidden;
+  background-image: url('../assets/static/images/menu-bg2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-logo {
@@ -30,12 +33,12 @@ a:visited {
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -45,5 +48,65 @@ a:visited {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.slide-in-left {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0, 0.13, 0, 0.66) both;
+  animation: slide-in-left 0.5s cubic-bezier(0, 0.13, 0, 0.66) both;
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-100vw);
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-100vw);
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0, 0.13, 0, 0.66) both;
+  animation: slide-in-right 0.5s cubic-bezier(0, 0.13, 0, 0.66) both;
+}
+
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
   }
 }

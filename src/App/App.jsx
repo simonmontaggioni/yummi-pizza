@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import Header from '../components/Header/Header';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import HomePage from '../pages/HomePage/HomePage';
 import OrderPage from '../pages/OrderPage/OrderPage';
@@ -12,6 +12,9 @@ function App() {
   return (
     <div className='App-container'>
       <Router basename='/yummi-pizza/'>
+        <div className='App-header'>
+          <Header />
+        </div>
         <Switch>
           <Route exact path='/'>
             <WelcomePage />

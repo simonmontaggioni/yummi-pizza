@@ -41,10 +41,11 @@
   justify-content: center;
 }
 
-.responsive-img {
+.cart-image {
   width: 80%;
   max-width: 400px;
   height: auto;
+  border-radius: 50%;
 }
 
 .cart-item__title {
