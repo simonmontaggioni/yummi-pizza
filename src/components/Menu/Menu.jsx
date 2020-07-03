@@ -19,26 +19,28 @@ const Menu = () => {
 
   useEffect(() => {
     apiProductsRequest();
-    setLoading(false);
   }, []);
 
-  const menuList = list.map((item, index) => (
-    <li key={item.name + index.toString()} className='menu__list--item'>
-      <ItemCard
-        item={
-          loading
-            ? {
-                name: null,
-                price: null,
-                ingredients: [],
-                id: null,
-                image: null,
-              }
-            : item
-        }
-      />
-    </li>
-  ));
+  let menuList = null;
+  if (!loading) {
+    menuList = list.map((item, index) => (
+      <li key={item.name + index.toString()} className='menu__list--item'>
+        <ItemCard
+          item={
+            loading
+              ? {
+                  name: null,
+                  price: null,
+                  ingredients: [],
+                  id: null,
+                  image: null,
+                }
+              : item
+          }
+        />
+      </li>
+    ));
+  }
 
   const myRef = useRef(null);
   const step = 100;
@@ -69,7 +71,13 @@ const Menu = () => {
       </div>
       <div className='menu__content'>
         <div ref={myRef} className='menu__slider'>
-          <ul className='menu__list'>{menuList}</ul>
+          {loading ? (
+            <div className='loading-text text-shadow-drop-center'>
+              Loading...
+            </div>
+          ) : (
+            <ul className='menu__list slide-in-bck-center'>{menuList}</ul>
+          )}
         </div>
       </div>
       <div className='menu__side'>
